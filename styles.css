@@ -117,3 +117,32 @@ nav .menu a:hover:before {
   width: 25%;
 }
 
+.dropdown {
+  color: #22313f;
+  font-size: xx-large;
+  text-decoration: none;
+  margin-right: auto;
+  padding-right: 50px;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  background-color: #e4f1fe;
+  display: none;
+  position: absolute;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {background-color: #e4f1fe;}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {display: block;}

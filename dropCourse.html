@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Drop Course Page</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+  </head>
+  <body>
+    <nav>
+      <div class="logo">
+        <a href="#">
+          <img src="Icons/aperture.svg">
+        </a>
+      </div>
+      <div class="menu">
+        <a href="home.html">
+          <img src="Icons/home.svg">
+        </a>
+        <a href="users.html">
+          <img src="Icons/user-plus.svg">
+        </a>
+        <div class="dropdown">
+            <img src="Icons/plus-circle.svg">
+            <div class="dropdown-content">
+              <a href="addCourse.html">Add Course</a>
+              <a href="registerCourse.html">Register Course</a>
+              <a href="dropCourse.html">Drop Course</a>
+            </div>
+          </div>
+        <a href="schedule.html">
+          <img src="Icons/calendar.svg">
+        </a>
+        <a href="#">
+          <img src="Icons/user.svg">
+        </a>
+      </div>
+    </nav>
+    <h1>Drop Course</h1>
+    <div class="form_container">
+      <form onsubmit="return validateForm()" action="dropCourse.php" method="post">
+        <label for="student_first_name">Student First Name:</label>
+        <input type="text" id="student_first_name" name="student_first_name" oninput="restrictNameInput(this)" max="50" required>
+
+        <label for="student_first_name">Student Last Name:</label>
+        <input type="text" id="student_first_name" name="student_first_name" oninput="restrictNameInput(this)" max="50" required>
+        
+        <label for="semester">Semester:</label>
+        <select id="semester" name="semester" required>
+          <option value="">Please select one</option>
+          <option value="Spring">Spring</option>
+          <option value="Summer">Summer</option>
+          <option value="Fall">Fall</option>
+        </select>    
+
+        <label for="year">Year:</label>
+        <input type="number" id="year" name="year" oninput="restrictNameInput(this)" required>
+
+        <label for="course_prefix">Course Prefix (e.g., CSCI):</label>
+        <input type="text" id="course_prefix" name="course_prefix" oninput="restrictNameInput(this)" max="50" required>
+
+        <label for="course_number">Course Number (e.g., 101, 330, etc.):</label>
+        <input type="number" id="course_number" name="course_number" oninput="restrictNameInput(this)" required>
+
+        <label for="course_section">Course Section (e.g., 01, 02):</label>
+        <input type="number" id="course_section" name="course_section" oninput="restrictNameInput(this)" required>
+
+        <input type="submit" value="Drop">
+      </form>
+    </div>
+  </body>
+</html>
