@@ -4,6 +4,12 @@
   flex-direction: column;
 }
 
+#title {
+  text-align: center;
+  font-family: sans-serif;
+  color: #22313f;
+}
+
 form {
   width: 50%;
   margin: 0 auto;
