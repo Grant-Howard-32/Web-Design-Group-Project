@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Schedule Page</title>
+    <title>Programmer's Manual</title>
     <link rel="stylesheet" type="text/css" href="styles.css">
   </head>
   <body>
@@ -41,6 +41,63 @@
         </a>
       </div>
     </nav>
-    <h1 id="title">Account Info</h1>
+    <h1 id="title">Programmer's Manual</h1>
+
+  <h2>Introduction</h2>
+  <p>This manual provides information on how to use and make changes to the Module 1 frontend code.</p>
+  <h2>Installation</h2>
+  <p>To install this webpage's code, follow these steps:</p>
+  <ol>
+    <li>Clone the repository from https://github.com/Grant-Howard-32/Web-Design-Group-Project</li>
+    <li>Request the necessary permissions to commit to the repo.</li>
+    <li>Edit the code and commit to github once code is ready.</li>
+  </ol>
+
+  <h2>Usage</h2>
+  <p>This section will give a brief description of the system:</p>
+  <ul>
+    <li> <b> Navigation Menu: This menu can be seen at the top of each webpage and it's code within the first (nav) section of the body. </b> </li>
+    <ul> 
+    <li> The a and href tags link the item to an html file</li>
+    <li> Each image can be found within the icon folder</li>
+    <li> Some icons have dropdown sections, which can be edited within their respectful div section</li>
+    </ul>
+    <li> <b> Overview of the Course Registration System: </b> </li>
+    <ul>
+      <li> This registration system is a webstite, build with HTML and CSS, to allow students to register, add, or drop a couurse, add an instructor, 
+        and other functions. However, it currently has no database to store any of the information logged. The webpages follow a typical HTML structure
+        that allows each web page its individual structure. The Icons folder holds all the icons that the website references and utilizes as buttons.
+        Moreover, the fonts folder introduces the the "chipotle" font within the website. Moreover, alongisde all the html files, the css document 
+        holds all the information for the website to stay consistent. To change the color schemes, font sizes, fonts, backgrounds, reference the "styles.css"
+        file.
+      </li> 
+    </ul>
+    <li> <b> Summary of the contents of Each Page</b> </li>
+    <ul>
+      <li> List of web-pages: accountInfo.html, addCourse.html, addInstructor.html, dropCourse.html, enrollStudent.html, home.html, registerCourse.html, schedule.html, usermanualv4.html</li>
+      <li><a href="usermanualv4.html">Web-pages and Descriptions</a> </li>
+    </ul>
+    <li><b>Desciption of all Form Elements</b></li>
+    <ul> For example of the addCourse page, as all other pages use the same forms, this HTML file implements a web page to add a course. The page includes a form that allows the user to provide details about the course, such as the semester, year, prefix, number, section, name, room, days offered, and time. The form is submitted to the addCourse.php file and the form inputs are validated using the validateForm() JavaScript function. The page also includes a navigation bar with links to other pages, including Home, Add Instructor, Enroll Student, Add Course, Register Course, Drop Course, Schedule, User Manual, and Account Info. The page uses a CSS file named styles.css for styling.</ul>
+    <li> <b> Description of all Functions </b> </li>
+    <ul> 
+      <li> The only functions can be found within the script.js file </li>
+      <li> restrictNameInput(input):</li>
+      <ul> <li> Input parameter: input (HTML input element) </li> <li> Description: The function takes an HTML input element as its parameter. It then replaces all characters in the input's value that do not match the regular expression /[^a-zA-Z]/g with an empty string. This means that the function only allows alphabetic characters (lowercase and uppercase) in the input field. </li> </ul>
+      
+      <li> restrictEmailInput(input): </li>
+      <ul> <li> Input parameter: input (HTML input element) </li> <li> Description: The function takes an HTML input element as its parameter. It then replaces all characters in the input's value that do not match the regular expression /[^a-zA-Z0-9@.]/g with an empty string. This means that the function only allows alphanumeric characters, the at sign (@), and the period (.) in the input field. </li> </ul>
+      
+      <li> validateForm(): </li>
+      <ul> <li> Input parameters: None </li> <li> Description: The function does not take any parameters. It selects all the select elements in the form using the querySelectorAll method and loops through them. If any of the selected elements has a value equal to an empty string, the function displays an alert message and returns false. If all select elements have a value, the function returns true. </li> </ul>
+      
+
+    </ul>
+  </ul>
+
+
+</body>
+</html>
+
   </body>
 </html>
