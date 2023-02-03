@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width initial-scale=1">
+    <title>User Page</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <script src="script.js"></script>
+  </head>
+  <body>
+
+    <nav>
+      <div class="logo">
+        <a href="#">
+          <img src="Icons/aperture.svg">
+        </a>
+      </div>
+      <div class="menu">
+        <a href="home.html">
+          <img src="Icons/home.svg">
+        </a>
+        <div class="dropdown">
+          <img src="Icons/user-plus.svg">
+          <div class="dropdown-content">
+            <a href="addInstructor.html">Add Instructor</a>
+            <a href="enrollStudent.html">Enroll Student</a>
+          </div>
+        </div>
+        <div class="dropdown">
+          <img src="Icons/plus-circle.svg">
+          <div class="dropdown-content">
+            <a href="addCourse.html">Add Course</a>
+            <a href="registerCourse.html">Register Course</a>
+            <a href="dropCourse.html">Drop Course</a>
+          </div>
+        </div>
+        <a href="schedule.html">
+          <img src="Icons/calendar.svg">
+        </a>
+        <a href="manual.html">
+          <img src="Icons/paperclip.svg">
+        </a>
+        <a href="accountInfo.html">
+          <img src="Icons/user.svg">
+        </a>
+      </div>
+    </nav>
+
+    <div class="form_container">
+        <h1 id="title">Add Instructor</h1>
+        <form onsubmit="return validateForm()" action="enroll.php" method="post">
+  
+          <label for="first_name">First Name:</label>
+          <input type="text" id="first_name" name="first_name" oninput="restrictNameInput(this)" max="50" required>
+  
+          <label for="last_name">Last Name:</label>
+          <input type="text" id="last_name" name="last_name" oninput="restrictNameInput(this)" max="50" required>
+  
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" oninput="restrictEmailInput(this)" max="35" required>
+  
+          <label for="department">Department:</label>
+          <input type="text" id="department" name="department" oninput="restrictNameInput(this)" max="50" required>
+  
+          <label for="rank">Rank:</label>
+          <select id="rank" name="rank" required>
+            <option value="">Please select one</option>
+            <option value="Instructor">Instructor</option>
+            <option value="Assistant Professor">Assistant Professor</option>
+            <option value="Associate Professor">Associate Professor</option>
+            <option value="Professor">Professor</option>
+            <option value="Other">Other</option>
+          </select>
+  
+          <input type="submit" value="Add">
+        </form>
+      </div>
+  
+    </body>
+  </html>

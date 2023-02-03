@@ -10,6 +10,16 @@
   color: #22313f;
 }
 
+#home_title {
+  font-family: sans-serif;
+  color: #22313f;
+  text-decoration: none;
+}
+
+#home_title:hover {
+  color: #34495e;
+}
+
 form {
   width: 50%;
   margin: 0 auto;

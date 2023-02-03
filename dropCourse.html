@@ -15,9 +15,13 @@
         <a href="home.html">
           <img src="Icons/home.svg">
         </a>
-        <a href="users.html">
+        <div class="dropdown">
           <img src="Icons/user-plus.svg">
-        </a>
+          <div class="dropdown-content">
+            <a href="addInstructor.html">Add Instructor</a>
+            <a href="enrollStudent.html">Enroll Student</a>
+          </div>
+        </div>
         <div class="dropdown">
             <img src="Icons/plus-circle.svg">
             <div class="dropdown-content">
@@ -29,12 +33,15 @@
         <a href="schedule.html">
           <img src="Icons/calendar.svg">
         </a>
-        <a href="#">
+        <a href="manual.html">
+          <img src="Icons/paperclip.svg">
+        </a>
+        <a href="accountInfo.html">
           <img src="Icons/user.svg">
         </a>
       </div>
     </nav>
-    <h1>Drop Course</h1>
+    <h1 id="title">Drop Course</h1>
     <div class="form_container">
       <form onsubmit="return validateForm()" action="dropCourse.php" method="post">
         <label for="student_first_name">Student First Name:</label>
