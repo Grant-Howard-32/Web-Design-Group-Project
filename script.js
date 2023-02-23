@@ -85,6 +85,22 @@ function validateAddCourseForm() {
         enrollment_cap.focus()
         return false;
     }
+
+    alert(
+        "Semester: " + document.getElementById("semester").value  + "\n" +
+        "Year: " + year.value  + "\n" +
+        "Course Prefix: " + course_prefix.value  + "\n" +
+        "Course Number: " + course_number.value  + "\n" +
+        "Course Section: " + course_section.value + "\n" +
+        "Course Name: " + document.getElementById("course_name").value  + "\n" +
+        "Course Room: " + course_room.value + "\n" +
+        "Days Offered: " + document.getElementById("days_offered").value  + "\n" +
+        "Time: " + document.getElementById("time").value  + "\n" +
+        "Credit Hours: " + credit_hours.value + "\n" +
+        "Instructor First Name: " + instructor_first_name.value + "\n" +
+        "Instructor Last Name: " + instructor_last_name.value  + "\n" + 
+        "Enrollment Cap: " + enrollment_cap.value + "\n"
+    );
     
     return true;
 }
@@ -142,6 +158,16 @@ function validateRegisterDropCourseForm() {
         course_section.focus()
         return false;
     }
+
+    alert(
+        "Student First Name: " + student_first_name.value + "\n" +
+        "Student Last Name: " + student_last_name.value  + "\n" + 
+        "Semester: " + document.getElementById("semester").value  + "\n" +
+        "Year: " + year.value  + "\n" +
+        "Course Prefix: " + course_prefix.value  + "\n" +
+        "Course Number: " + course_number.value  + "\n" +
+        "Course Section: " + course_section.value
+    );
 
     return true;
 }
