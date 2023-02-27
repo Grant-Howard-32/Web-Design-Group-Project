@@ -6,6 +6,44 @@ function restrictEmailInput(input) {
     input.value = input.value.replace(/[^a-zA-Z0-9@.]/g, "");
 }
 
+function updateTimes(){
+    const course_day = document.getElementById("days");
+
+    if (course_day.value == ""){
+        document.getElementById("label-times-mwf").style.display = "none";
+        document.getElementById("times-mwf").style.display = "none";
+        document.getElementById("label-times-tth").style.display = "none";
+        document.getElementById("times-tth").style.display = "none";
+        document.getElementById("label-times-day").style.display = "none";
+        document.getElementById("times-day").style.display = "none";
+    }
+
+    else if (course_day.value == "mwf") {
+        document.getElementById("label-times-mwf").style.display = "contents";
+        document.getElementById("times-mwf").style.display = "block";
+        document.getElementById("label-times-tth").style.display = "none";
+        document.getElementById("times-tth").style.display = "none";
+        document.getElementById("label-times-day").style.display = "none";
+        document.getElementById("times-day").style.display = "none";
+    }
+    else if (course_day.value == "tth") {
+        document.getElementById("label-times-mwf").style.display = "none";
+        document.getElementById("times-mwf").style.display = "none";
+        document.getElementById("label-times-tth").style.display = "contents";
+        document.getElementById("times-tth").style.display = "block";
+        document.getElementById("label-times-day").style.display = "none";
+        document.getElementById("times-day").style.display = "none";
+    }
+    else if (course_day.value == "mon" || course_day.value == "tue" || course_day.value == "wed" || course_day.value == "thu") {
+        document.getElementById("label-times-mwf").style.display = "none";
+        document.getElementById("times-mwf").style.display = "none";
+        document.getElementById("label-times-tth").style.display = "none";
+        document.getElementById("times-tth").style.display = "none";
+        document.getElementById("label-times-day").style.display = "contents";
+        document.getElementById("times-day").style.display = "block";
+    }
+}
+
 function validateAddCourseForm() {
     const year = document.getElementById("year");
     const course_prefix = document.getElementById("course_prefix");

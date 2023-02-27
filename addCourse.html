@@ -72,38 +72,46 @@
         <input type="text" id="course_room" name="course_room" max="50">
 
         <label for="days">Select Days:</label>
-<select id="days" onchange="updateTimes()">
-  <option value="">--Select--</option>
-  <option value="mwf">Monday, Wednesday, Friday</option>
-  <option value="tth">Tuesday, Thursday</option>
-  <option value="sat">Monday</option>
-</select>
+        <select id="days" onchange="updateTimes()">
+          <option value="">--Select--</option>
+          <option value="mwf">Monday, Wednesday, Friday</option>
+          <option value="tth">Tuesday, Thursday</option>
+          <option value="mon">Monday</option>
+          <option value="tue">Tuesday</option>
+          <option value="wed">Wednesday</option>
+          <option value="thu">Thursday</option>
+        </select>
 
-<label for="times-mwf" id="label-times-mwf" style="display:none;">Select Times:</label>
-<select id="times-mwf" name="times-mwf" style="display:none;">
-  <option value="">--Select--</option>
-  <option value="8am">8:00 AM</option>
-  <option value="9am">9:00 AM</option>
-  <option value="10am">10:00 AM</option>
-  <option value="1pm">1:00 PM</option>
-</select>
+        <label for="times-mwf" id="label-times-mwf" style="display:none;">Select Times:</label>
+        <select id="times-mwf" name="times-mwf" style="display:none;">
+          <option value="">--Select--</option>
+          <option value="8am">8:00 AM - 8:50 AM</option>
+          <option value="9am">9:00 AM - 9:50 AM</option>
+          <option value="10am">10:00 AM - 10:50 AM</option>
+          <option value="11am">11:00 AM - 11:50 AM</option>
+          <option value="12pm">12:00 PM - 12:50 PM</option>
+          <option value="1pm">1:00 PM - 1:50 PM</option>
+          <option value="2pm">2:00 PM - 2:50 PM</option>
+          <option value="3pm">3:00 PM - 3:50 PM</option>
+        </select>
 
-<label for="times-tth" id="label-times-tth" style="display:none;">Select Times:</label>
-<select id="times-tth" name="times-tth" style="display:none;">
-  <option value="">--Select--</option>
-  <option value="9am">9:30 AM</option>
-  <option value="11am">11:00 AM</option>
-  <option value="1pm">1:00 PM</option>
-  <option value="23pm">2:30 PM</option>
-</select>
+        <label for="times-tth" id="label-times-tth" style="display:none;">Select Times:</label>
+        <select id="times-tth" name="times-tth" style="display:none;">
+          <option value="">--Select--</option>
+          <option value="8am">8:00 AM - 9:15 AM</option>
+          <option value="9am">9:30 AM - 10:45 AM</option>
+          <option value="11am">11:00 AM - 12:15 PM</option>
+          <option value="1pm">1:00 PM - 2:15 PM</option>
+          <option value="23pm">2:30 PM - 3:45 PM</option>
+        </select>
 
-<label for="times-sat" id="label-times-sat" style="display:none;">Select Times:</label>
-<select id="times-sat" name="times-sat" style="display:none;">
-  <option value="">--Select--</option>
-  <option value="2pm">2:00 PM</option>
-  <option value="3pm">3:00 PM</option>
-  <option value="4pm">4:00 PM</option>
-</select>
+        <label for="times-day" id="label-times-day" style="display:none;">Select Times:</label>
+        <select id="times-day" name="times-day" style="display:none;">
+          <option value="">--Select--</option>
+          <option value="1pm">1:00 PM - 4:00 PM</option>
+          <option value="2pm">2:00 PM - 5:00 PM</option>
+          <option value="7pm">7:00 PM - 9:30 PM</option>
+        </select>
 
 
 
