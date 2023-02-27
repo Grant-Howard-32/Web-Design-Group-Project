@@ -1,10 +1,4 @@
-function restrictNameInput(input) {
-    input.value = input.value.replace(/[^a-zA-Z]/g, "");
-}
 
-function restrictEmailInput(input) {
-    input.value = input.value.replace(/[^a-zA-Z0-9@.]/g, "");
-}
 
 function validateAddCourseForm() {
     const year = document.getElementById("year");
@@ -171,3 +165,74 @@ function validateRegisterDropCourseForm() {
 
     return true;
 }
+
+
+function restrictNameInput(input, error_id) {
+    
+    const regex = /[^a-zA-Z\s]/g;
+    const error = document.getElementById(error_id);
+    if (regex.test(input.value)) {
+        input.value = "";
+        error.innerHTML = 'Name can only contain letters and spaces.';
+        error.classList.add("error");
+        return false;
+    } else {
+        error.textContent = "";
+        input.classList.remove("error");
+        return true;
+    }
+    }
+
+function restrictEmailInput(input) {
+    input.value = input.value.replace(/[^a-zA-Z0-9@.]/g, "");
+    const regex = /^[a-zA-Z]{3}[0-9]{3}@marietta.edu$/;
+    const error = document.getElementById("email_error");
+    if (!regex.test(input.value)) {
+        // Invalid email address
+        input.value = "";
+        const exampleEmail = "abc123@marietta.edu";
+        error.innerHTML = `Invalid email address!<br>Ex. ${exampleEmail}`;
+        error.classList.add("error");
+        return false;
+    }   else {
+        error.textContent = "";
+        error.classList.remove("error");
+        return true;
+    }
+    }
+
+function validateEnrollStudentForm() {
+    const email_input = document.getElementById("email");
+    const first_name_input = document.getElementById("first_name")
+    const last_name_input = document.getElementById("last_name")
+    const major = document.getElementById("major")
+
+    const email_flag = restrictEmailInput(email_input);
+    const first_name_flag = restrictNameInput(first_name_input, "first_name_error");
+    const last_name_flag = restrictNameInput(last_name_input, "last_name_error");
+    const major_flag = restrictNameInput(major, "major_error");
+
+    if (!email_flag || !first_name_flag || !last_name_flag || !major_flag) {
+        return false;
+    }
+
+    return true;
+    }
+
+function validateAddInstructorForm() {
+    const email_input = document.getElementById("email");
+    const first_name_input = document.getElementById("first_name")
+    const last_name_input = document.getElementById("last_name")
+    const department = document.getElementById("department")
+
+    const email_flag = restrictEmailInput(email_input);
+    const first_name_flag = restrictNameInput(first_name_input, "first_name_error");
+    const last_name_flag = restrictNameInput(last_name_input, "last_name_error");
+    const department_flag = restrictNameInput(department, "department_error");
+
+    if (!email_flag || !first_name_flag || !last_name_flag || !department_flag) {
+        return false;
+    }
+
+    return true;
+    }

@@ -47,19 +47,23 @@
 
     <div class="form_container">
         <h1 id="title">Add Instructor</h1>
-        <form onsubmit="return validateForm()" action="enroll.php" method="post">
+        <form onsubmit="return validateAddInstructorForm()" action="enroll.php" method="post">
   
           <label for="first_name">First Name:</label>
-          <input type="text" id="first_name" name="first_name" oninput="restrictNameInput(this)" max="50" required>
+          <input type="text" id="first_name" name="first_name" max="50" required>
+          <p id="first_name_error"></p>
   
           <label for="last_name">Last Name:</label>
-          <input type="text" id="last_name" name="last_name" oninput="restrictNameInput(this)" max="50" required>
+          <input type="text" id="last_name" name="last_name" max="50" required>
+          <p id="last_name_error"></p>
   
           <label for="email">Email:</label>
-          <input type="email" id="email" name="email" oninput="restrictEmailInput(this)" max="35" required>
+          <input type="email" id="email" name="email" max="35" required>
+          <p id="email_error"></p>
   
           <label for="department">Department:</label>
-          <input type="text" id="department" name="department" oninput="restrictNameInput(this)" max="50" required>
+          <input type="text" id="department" name="department" max="50" required>
+          <p id="department_error"></p>
   
           <label for="rank">Rank:</label>
           <select id="rank" name="rank" required>
