@@ -71,38 +71,41 @@
         <label for="course_room">Room (i.e., Building and Room Number):</label>
         <input type="text" id="course_room" name="course_room" max="50">
 
-        <label for="days_offered">Days Offered:</label>
-        <select id="days_offered" name="days_offered">
-          <option value="">Please select one</option>
-          <option value="MWF">Monday, Wednesday, Friday</option>
-          <option value="TTH">Tuesday, Thursday</option>
-          <option value="M">Monday</option>
-          <option value="T">Tuesday</option>
-          <option value="W">Wednesday</option>
-          <option value="TH">Thursday</option>
-        </select>
+        <label for="days">Select Days:</label>
+<select id="days" onchange="updateTimes()">
+  <option value="">--Select--</option>
+  <option value="mwf">Monday, Wednesday, Friday</option>
+  <option value="tth">Tuesday, Thursday</option>
+  <option value="sat">Monday</option>
+</select>
+
+<label for="times-mwf" id="label-times-mwf" style="display:none;">Select Times:</label>
+<select id="times-mwf" name="times-mwf" style="display:none;">
+  <option value="">--Select--</option>
+  <option value="8am">8:00 AM</option>
+  <option value="9am">9:00 AM</option>
+  <option value="10am">10:00 AM</option>
+  <option value="1pm">1:00 PM</option>
+</select>
+
+<label for="times-tth" id="label-times-tth" style="display:none;">Select Times:</label>
+<select id="times-tth" name="times-tth" style="display:none;">
+  <option value="">--Select--</option>
+  <option value="9am">9:30 AM</option>
+  <option value="11am">11:00 AM</option>
+  <option value="1pm">1:00 PM</option>
+  <option value="23pm">2:30 PM</option>
+</select>
+
+<label for="times-sat" id="label-times-sat" style="display:none;">Select Times:</label>
+<select id="times-sat" name="times-sat" style="display:none;">
+  <option value="">--Select--</option>
+  <option value="2pm">2:00 PM</option>
+  <option value="3pm">3:00 PM</option>
+  <option value="4pm">4:00 PM</option>
+</select>
 
 
-        <label for="time">Time:</label>
-        <select id="time" name="time">
-          <option value="">Please select one</option>
-          <option value="8_850">8:00 AM to 8:50 AM</option>
-          <option value="9_950">9:00 AM to 9:50 AM</option>
-          <option value="10_1050">10:00 AM to 10:50 AM</option>
-          <option value="11_1150">11:00 AM to 11:50 AM</option>
-          <option value="12_1250">12:00 PM to 12:50 PM</option>
-          <option value="1_150">1:00 PM to 1:50 PM</option>
-          <option value="2_250">2:00 PM to 2:50 PM</option>
-          <option value="3_350">3:00 PM to 3:50 PM</option>
-          <option value="8_915">8:00 AM to 9:15 AM</option>
-          <option value="930_1045">9:30 AM to 10:45 AM</option>
-          <option value="11_1215">11:00 AM to 12:15 PM</option>
-          <option value="1_215">1:00 PM to 2:15 PM</option>
-          <option value="230_345">2:30 PM to 3:45 PM</option>
-          <option value="1_4">1:00 PM to 4:00 PM</option>
-          <option value="2_5">2:00 PM to 5:00 PM</option>
-          <option value="7_930">7:00 PM to 9:30 PM</option>
-        </select>
 
         <label for="credit_hours">Credit Hours:</label>
         <input type="number" id="credit_hours" name="credit_hours" required>
