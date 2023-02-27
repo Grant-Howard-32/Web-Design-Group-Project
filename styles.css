@@ -168,3 +168,30 @@ nav .menu a:hover:before {
 
 /* Show the dropdown menu on hover */
 .dropdown:hover .dropdown-content {display: block;}
+
+#secondary-nav {
+  position: fixed;
+  z-index: 1;
+  top: 110px;
+  left: 10px;
+  height: auto;
+  width: 150px;
+  padding: 8px 0;
+  background-color: #f5f5f5;
+  overflow-x: hidden;
+}
+
+#secondary-nav a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+#secondary-nav a:hover {
+  color: #8dc6ff;
+}
+
+.main {
+  margin-left: 160px;
+  padding: 0px 10px;
+}
