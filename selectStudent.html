@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Admin Select Student Page</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <script src="script.js"></script>
+  </head>
+  <body>
+    <nav>
+      <div class="logo">
+        <a href="#">
+          <img src="Icons/aperture.svg">
+        </a>
+      </div>
+      <div class="menu">
+        <a href="home.html">
+          <img src="Icons/home.svg" title="Home">
+        </a>
+        <div class="dropdown">
+          <img src="Icons/user-plus.svg" title="Add Instructor / Enroll Student">
+          <div class="dropdown-content">
+            <a href="addInstructor.html">Add Instructor</a>
+            <a href="enrollStudent.html">Enroll Student</a>
+          </div>
+        </div>
+        <div class="dropdown">
+          <img src="Icons/plus-circle.svg" title="Modify Courses">
+          <div class="dropdown-content">
+            <a href="addCourse.html">Add Course</a>
+            <a href="registerCourse.html">Register Course</a>
+            <a href="dropCourse.html">Drop Course</a>
+          </div>
+        </div>
+        <a href="schedule.html">
+          <img src="Icons/calendar.svg" title="Calendar">
+        </a>
+        <a href="usermanualv4.html">
+          <img src="Icons/paperclip.svg" title="User Manual">
+        </a>
+        <a href="accountInfo.html">
+          <img src="Icons/user.svg" title="Programmer's Manual">
+        </a>
+      </div>
+    </nav>
+    <h1 id="title">Admin Select Student</h1>
+    <div class="form_container">
+        <form onsubmit="return validateAddCourseForm();" action="coursesRegistered.html" method="post">
+            <label for="student">Student:</label>
+            <select id="student" name="student" required>
+              <option value="">Please select one</option>
+              <option value="Student 1">Student 1</option>
+              <option value="Student 2">Student 2</option>
+              <option value="Student 3">Student 3</option>
+            </select>
+            
+            <input type="submit">
+        </form>
+    </div>
+  </body>
+</html>
+<!
+Admin Page
+If an Admin attempts to go to this page, the Admin should be redirected to a different page first. This
+page will contain a list containing all of the students. The Admin should be able to select a student
+from this list (using either a drop down list or a group of radio buttons) and go to the original page and
+display a table containing the courses registered by that student. The page should allow the Admin to
+go back to the page with the student list and select a different student. Of course, this feature won't be
+fully implemented in this module, but the drop down list page can be implemented.>
