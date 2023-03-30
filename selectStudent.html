@@ -31,9 +31,15 @@
             <a href="dropCourse.html">Drop Course</a>
           </div>
         </div>
-        <a href="schedule.html">
+        <div class="dropdown">
           <img src="Icons/calendar.svg" title="Calendar">
-        </a>
+          <div class="dropdown-content">
+            <a href="selectStudent.html">Courses Registered</a>
+            <a href="selectCourse.html">Students Registered to Course</a>
+            <a href="selectInstructor.html">Courses Taught</a>
+            <a href="selectSemester.html">Students Registered by Semester</a>
+          </div>
+        </div>
         <a href="usermanualv4.html">
           <img src="Icons/paperclip.svg" title="User Manual">
         </a>
@@ -46,14 +52,12 @@
     <div class="form_container">
         <form onsubmit="return validateAddCourseForm();" action="coursesRegistered.html" method="post">
             <label for="student">Student:</label>
-            <select id="student" name="student" required>
+            <select id="student" name="student" onchange="this.form.submit()" required>
               <option value="">Please select one</option>
               <option value="Student 1">Student 1</option>
               <option value="Student 2">Student 2</option>
               <option value="Student 3">Student 3</option>
             </select>
-            
-            <input type="submit">
         </form>
     </div>
   </body>
