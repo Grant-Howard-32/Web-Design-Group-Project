@@ -225,3 +225,12 @@ tr:last-of-type td:first-of-type {
 tr:last-of-type td:last-of-type {
   border-bottom-right-radius: 10px;
 }
+
+.selectButton {
+  margin: auto;
+  width: 10%;
+  background-color: #8dc6ff;
+  font-weight: bold;
+  padding: 10px;
+  border-radius: 4px;
+}
