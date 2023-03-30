@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head> 
+	<title>Login Page</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <script src="script.js"></script>
+</head>
+<body>
+    <div class="form_container">
+        <h1 id="title">Login</h1>
+        <form method="post" action="login.php" onsubmit="return validateAcceptUserForm()">
+            <label for="username">User Name:</label>
+            <input type="text" id="username" name="username" required>
+            <p id="user_name_error"></p>
+            <input type="submit" value="Login">
+            
+        </form>
+    </div>
+</body>
+</html>
