@@ -20,7 +20,7 @@
             </thead>
         </table>
         <br>
-        <button class="selectButton" onclick="location.href='selectCourse.html'">Select Different Course</button>
+        <button class="selectButton" onclick="location.href='selectCourse.php'">Select Different Course</button>
     </div>
   </body>
 </html>

@@ -5,37 +5,37 @@
     </a>
     </div>
     <div class="menu">
-    <a href="home.html">
+    <a href="home.php">
         <img src="Icons/home.svg" title="Home">
     </a>
     <div class="dropdown">
         <img src="Icons/user-plus.svg" title="Add Instructor / Enroll Student">
         <div class="dropdown-content">
-        <a href="addInstructor.html">Add Instructor</a>
-        <a href="enrollStudent.html">Enroll Student</a>
+        <a href="addInstructor.php">Add Instructor</a>
+        <a href="enrollStudent.php">Enroll Student</a>
         </div>
     </div>
     <div class="dropdown">
         <img src="Icons/plus-circle.svg" title="Modify Courses">
         <div class="dropdown-content">
-        <a href="addCourse.html">Add Course</a>
-        <a href="registerCourse.html">Register Course</a>
-        <a href="dropCourse.html">Drop Course</a>
+        <a href="addCourse.php">Add Course</a>
+        <a href="registerCourse.php">Register Course</a>
+        <a href="dropCourse.php">Drop Course</a>
         </div>
     </div>
     <div class="dropdown">
         <img src="Icons/calendar.svg" title="Calendar">
         <div class="dropdown-content">
-        <a href="selectStudent.html">Courses Registered</a>
-        <a href="selectCourse.html">Students Registered to Course</a>
-        <a href="selectInstructor.html">Courses Taught</a>
-        <a href="selectSemester.html">Students Registered by Semester</a>
+        <a href="selectStudent.php">Courses Registered</a>
+        <a href="selectCourse.php">Students Registered to Course</a>
+        <a href="selectInstructor.php">Courses Taught</a>
+        <a href="selectSemester.php">Students Registered by Semester</a>
         </div>
     </div>
-    <a href="usermanualv4.html">
+    <a href="usermanualv4.php">
         <img src="Icons/paperclip.svg" title="User Manual">
     </a>
-    <a href="accountInfo.html">
+    <a href="accountInfo.php">
         <img src="Icons/user.svg" title="Programmer's Manual">
     </a>
     </div>

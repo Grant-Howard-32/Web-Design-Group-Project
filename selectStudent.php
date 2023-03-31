@@ -9,7 +9,7 @@
     <?php include 'navigation.php'; ?>
     <h1 id="title">Admin Select Student</h1>
     <div class="form_container">
-        <form onsubmit="return validateAddCourseForm();" action="coursesRegistered.html" method="post">
+        <form onsubmit="return validateAddCourseForm();" action="coursesRegistered.php" method="post">
             <label for="student">Student:</label>
             <select id="student" name="student" onchange="this.form.submit()" required>
               <option value="">Please select one</option>
