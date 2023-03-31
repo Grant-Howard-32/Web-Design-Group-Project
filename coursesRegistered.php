@@ -40,7 +40,7 @@ $username = $_SESSION['username'];
             </thead>
         </table>
         <br>
-        <button class="selectButton" onclick="location.href='selectStudent.html'">Select Different Student</button>
+        <button class="selectButton" onclick="location.href='selectStudent.php'">Select Different Student</button>
     </div>
     <?php include 'footer.php'; ?>
   </body>

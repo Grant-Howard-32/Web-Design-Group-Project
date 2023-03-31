@@ -24,7 +24,7 @@ $username = $_SESSION['username'];
     <?php include 'navigation.php'; ?>
     <h1 id="title">Admin Select Instructor</h1>
     <div class="form_container">
-        <form onsubmit="return validateAddCourseForm();" action="coursesTaught.html" method="post">
+        <form onsubmit="return validateAddCourseForm();" action="coursesTaught.php" method="post">
             <label for="instructor">Instructor:</label>
             <select id="instructor" name="instructor" onchange="this.form.submit()" required>
               <option value="">Please select one</option>

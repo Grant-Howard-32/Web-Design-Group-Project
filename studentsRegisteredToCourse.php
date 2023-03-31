@@ -35,7 +35,7 @@ $username = $_SESSION['username'];
             </thead>
         </table>
         <br>
-        <button class="selectButton" onclick="location.href='selectCourse.html'">Select Different Course</button>
+        <button class="selectButton" onclick="location.href='selectCourse.php'">Select Different Course</button>
     </div>
     <?php include 'footer.php'; ?>
   </body>

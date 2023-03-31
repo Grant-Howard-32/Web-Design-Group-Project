@@ -37,6 +37,7 @@ $username = $_SESSION['username'];
           <!-- Table data will be populated dynamically -->
         </tbody>
       </table>
+      <button class="selectButton" onclick="location.href='selectSemester.php'">Select Different Semester</button>
     </div>
     <?php include 'footer.php'; ?>
   </body>
