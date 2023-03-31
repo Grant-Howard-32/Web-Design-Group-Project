@@ -1,3 +1,17 @@
+<?php
+session_start();
+
+// Redirect the user to the login page if not logged in or session has timed out
+if (!isset($_SESSION['username']) || (time()-$_SESSION["login_time_stamp"] > 5)) {
+    session_unset();
+    session_destroy();
+    header("Location: login.html");
+    exit();
+}
+
+$username = $_SESSION['username'];
+?>
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -40,6 +54,6 @@
       </div>
       <p>This page details the code used to implement the entire program, along with how a programmer can access it.</p>
     </div>  
-
+    <?php include 'footer.php'; ?>
   </body>
 </html>
