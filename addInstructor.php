@@ -20,7 +20,7 @@
 
     <div class="form_container">
         <h1 id="title">Add Instructor</h1>
-        <form onsubmit="return validateAddInstructorForm()" action="enroll.php" method="post">
+        <form onsubmit="return validateAddInstructorForm()" action="addInstructorResults.php" method="post">
   
           <label for="first_name">First Name:</label>
           <input type="text" id="first_name" name="first_name" max="50" required>
