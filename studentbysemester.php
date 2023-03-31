@@ -8,7 +8,7 @@
   <body>
     <?php include 'navigation.php'; ?>
     <h1 id="title">View Registered Students</h1>
-    <div class="table_container">
+    <div class="form_container">
       <table>
         <thead>
           <tr>
@@ -22,6 +22,7 @@
           <!-- Table data will be populated dynamically -->
         </tbody>
       </table>
+      <br>
       <button class="selectButton" onclick="location.href='selectSemester.php'">Select Different Semester</button>
     </div>
   </body>

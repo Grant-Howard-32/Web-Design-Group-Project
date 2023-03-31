@@ -22,11 +22,11 @@
   </body>
 </html>
 
-<!
+<!--
 Instructor and Admin Views
 The user should be able to select the course first. This will require a separate page that displays all of
 the courses available to the user. If an Instructor views this page, a list of that instructor's courses will
 appear as options in the list. If an Admin views this page, a list of all courses should appear as options
 in the list. Either way, selecting one of the courses in the list will display the student information in the
 table on the other page
->
+-->

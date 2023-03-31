@@ -22,9 +22,9 @@
   </body>
 </html>
 
-<!
+<!--
 Note that if an Instructor is viewing the page, only those courses taught by that instructor should be
 displayed. If an Admin views the page, there must be a separate page where the Admin can select an
 instructor first. After selecting an instructor, the Admin will go to the page with the table displaying
 the courses taught by that instructor.
->
+-->
