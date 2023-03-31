@@ -10,6 +10,12 @@ if (!isset($_SESSION['username']) || (time()-$_SESSION["login_time_stamp"] > 60)
 }
 
 $username = $_SESSION['username'];
+
+if ($username != 'admin') {
+  echo "Access Denied. You do not have permission to access this page.<br>";
+  echo "<a href='home.php'>Click here</a> to return to the homepage.";
+  exit();
+}
 ?>
 
 <!DOCTYPE html>
