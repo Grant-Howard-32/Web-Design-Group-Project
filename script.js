@@ -54,7 +54,12 @@ function validateAddCourseForm() {
         year.focus()
         return false;
     }
-    if (year.value < 2023 || year.value > 9999) {
+    if (!/^[0-9]{4}$/.test(year)) {
+        alert("Enter a valid year");
+        year.focus()
+        return false;
+    }
+    if (year.value < 2023) {
         alert("Year must be after 2022");
         year.focus()
         return false;
@@ -162,7 +167,12 @@ function validateRegisterDropCourseForm() {
         year.focus()
         return false;
     }
-    if (year.value < 2023 || year.value > 9999) {
+    if (!/^[0-9]{4}$/.test(year)) {
+        alert("Enter a valid year");
+        year.focus()
+        return false;
+    }
+    if (year.value < 2023) {
         alert("Year must be after 2022");
         year.focus()
         return false;
@@ -174,6 +184,7 @@ function validateRegisterDropCourseForm() {
         return false;
     }
 
+    if (!/^[0-9][0-9][0-9]$/.test(course_number))
     if (course_number.value < 1 || course_number.value > 499) {
         alert("Course Number Must be Between 001 and 499");
         course_number.focus()

@@ -99,6 +99,13 @@ nav:after {
   background-color: #22313f;
 }
 
+nav span {
+  color: #22313f;
+  font-size: xx-large;
+  text-decoration: none;
+  padding-right: 50px;
+}
+
 nav a {
   color: #22313f;
   font-size: xx-large;
