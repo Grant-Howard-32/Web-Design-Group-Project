@@ -1,3 +1,5 @@
+<?php include 'timeout.php'; ?>
+
 <?php
 $first_name = $_POST['first_name'];
 $last_name = $_POST['last_name'];
@@ -13,6 +15,8 @@ $rank = $_POST['rank'];
         <link rel="stylesheet" type="text/css" href="styles.css">
     </head>
     <body>
+        <?php include 'navigation.php'; ?>
+        
         <h1 id="title">Add Instructor Results</h1>
         <div class="resultsBox"> 
             <ul class="resultsList">

@@ -1,3 +1,5 @@
+<?php include 'timeout.php'; ?>
+
 <?php
 $semester = $_POST['semester'];
 $year = $_POST['year'];
@@ -29,6 +31,8 @@ $enrollment_cap = $_POST['enrollment_cap'];
         <link rel="stylesheet" type="text/css" href="styles.css">
     </head>
     <body>
+        <?php include 'navigation.php'; ?>
+
         <h1 id="title">Add Course Results</h1>
         <div class="resultsBox"> 
             <ul class="resultsList">

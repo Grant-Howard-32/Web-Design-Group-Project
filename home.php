@@ -13,6 +13,12 @@
     <div class="menu">
       <br>
       <div style="display: flex; align-items: center;">
+        <img src="Icons/aperture.svg">
+        <h1 style="margin: 0 10px;">Logout</h1>
+      </div>
+      <p>This logs you out of your account and returns you to the login page.</p>
+      <br>
+      <div style="display: flex; align-items: center;">
         <img src="Icons/home.svg">
         <h1 style="margin: 0 10px;">Home</h1>
       </div>

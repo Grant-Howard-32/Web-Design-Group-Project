@@ -1,6 +1,6 @@
 <nav>
     <div class="logo">
-    <a href="#">
+    <a href="login.html">
         <img src="Icons/aperture.svg">
     </a>
     <span>Hello, <?php echo $username; ?></span>

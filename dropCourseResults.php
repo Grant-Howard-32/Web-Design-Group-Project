@@ -1,3 +1,5 @@
+<?php include 'timeout.php'; ?>
+
 <?php
 $student_first_name = $_POST['student_first_name'];
 $student_last_name = $_POST['student_last_name'];
@@ -15,6 +17,8 @@ $course_section = $_POST['course_section'];
         <link rel="stylesheet" type="text/css" href="styles.css">
     </head>
     <body>
+        <?php include 'navigation.php'; ?>
+        
         <h1 id="title">Drop Course Results</h1>
         <div class="resultsBox"> 
             <ul class="resultsList">
