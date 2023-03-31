@@ -89,13 +89,6 @@ nav {
   color: #e4f1fe;
 }
 
-
-nav p {
-  color: #22313f;
-  margin: auto;
-  position: inherit;
-}
-
 nav:after {
   content: "";
   position: absolute;

@@ -54,6 +54,5 @@ $username = $_SESSION['username'];
       </div>
       <p>This page details the code used to implement the entire program, along with how a programmer can access it.</p>
     </div>  
-    <?php include 'footer.php'; ?>
   </body>
 </html>
