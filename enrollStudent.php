@@ -1,21 +1,10 @@
-<?php
-session_start();
+<?php include 'timeout.php';
 
-// Redirect the user to the login page if not logged in or session has timed out
-if (!isset($_SESSION['username']) || (time()-$_SESSION["login_time_stamp"] > 60)) {
-    session_unset();
-    session_destroy();
-    header("Location: login.html");
+  if ($username != 'admin') {
+    echo "Access Denied. You do not have permission to access this page.<br>";
+    echo "<a href='home.php'>Click here</a> to return to the homepage.";
     exit();
-}
-
-$username = $_SESSION['username'];
-
-if ($username != 'admin') {
-  echo "Access Denied. You do not have permission to access this page.<br>";
-  echo "<a href='home.php'>Click here</a> to return to the homepage.";
-  exit();
-}
+  }
 ?>
 
 <!DOCTYPE html>
