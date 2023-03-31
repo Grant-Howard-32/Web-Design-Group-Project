@@ -1,3 +1,17 @@
+<?php
+session_start();
+
+// Redirect the user to the login page if not logged in or session has timed out
+if (!isset($_SESSION['username']) || (time()-$_SESSION["login_time_stamp"] > 5)) {
+    session_unset();
+    session_destroy();
+    header("Location: login.html");
+    exit();
+}
+
+$username = $_SESSION['username'];
+?>
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -21,6 +35,7 @@
     </style>
   </head>
   <body>
+    <span style="font-family: sans-serif; color: #22313f;">Hello, <?php echo $username; ?>.</span>
     <?php include 'navigation.php'; ?>
     <h1 id="title">Schedule Page</h1>
     <table>
@@ -205,5 +220,6 @@
         <td></td>
       </tr>
     </table>
+    <?php include 'footer.php'; ?>
   </body>
 </html>
