@@ -49,12 +49,7 @@ function validateAddCourseForm() {
     const instructor_last_name = document.getElementById("instructor_last_name");
     const enrollment_cap = document.getElementById("enrollment_cap");
 
-    if (isNaN(year.value)) {
-        alert("Year must be a number");
-        year.focus()
-        return false;
-    }
-    if (!/^[0-9]{4}$/.test(year)) {
+    if (!/^[0-9]{4}$/.test(year.value)) {
         alert("Enter a valid year");
         year.focus()
         return false;
@@ -71,7 +66,7 @@ function validateAddCourseForm() {
         return false;
     }
 
-    if (course_number.value < 1 || course_number.value > 499) {
+    if (!/^[0-9]{3}$/.test(course_number.value) || course_number.value > 499) {
         alert("Course Number Must be Between 001 and 499");
         course_number.focus()
         return false;
@@ -156,18 +151,13 @@ function validateRegisterDropCourseForm() {
         return false;
     }
 
-    if (!/^[a-zA-Z0-9 ]*$/.test(student_last_name.value)) {
+    if (!/^[a-zA-Z0-9]*$/.test(student_last_name.value)) {
         alert("Please enter a valid Last Name");
         student_last_name.focus();
         return false;
     }
 
-    if (isNaN(year.value)) {
-        alert("Year must be a number");
-        year.focus()
-        return false;
-    }
-    if (!/^[0-9]{4}$/.test(year)) {
+    if (!/^[0-9]{4}$/.test(year.value)) {
         alert("Enter a valid year");
         year.focus()
         return false;
@@ -184,8 +174,7 @@ function validateRegisterDropCourseForm() {
         return false;
     }
 
-    if (!/^[0-9][0-9][0-9]$/.test(course_number))
-    if (course_number.value < 1 || course_number.value > 499) {
+    if (!/^[0-9]{3}$/.test(course_number.value) || course_number.value > 499) {
         alert("Course Number Must be Between 001 and 499");
         course_number.focus()
         return false;
