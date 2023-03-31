@@ -23,7 +23,7 @@ $username = $_SESSION['username'];
     <span style="font-family: sans-serif; color: #22313f;">Hello, <?php echo $username; ?>.</span>
     <?php include 'navigation.php'; ?>
     <h1 id="title">View Registered Students</h1>
-    <div class="table_container">
+    <div class="form_container">
       <table>
         <thead>
           <tr>
@@ -37,6 +37,7 @@ $username = $_SESSION['username'];
           <!-- Table data will be populated dynamically -->
         </tbody>
       </table>
+      <br>
       <button class="selectButton" onclick="location.href='selectSemester.php'">Select Different Semester</button>
     </div>
     <?php include 'footer.php'; ?>

@@ -37,11 +37,12 @@ $username = $_SESSION['username'];
     <?php include 'footer.php'; ?>
   </body>
 </html>
-<!
+<!--
 Admin Page
 If an Admin attempts to go to this page, the Admin should be redirected to a different page first. This
 page will contain a list containing all of the students. The Admin should be able to select a student
 from this list (using either a drop down list or a group of radio buttons) and go to the original page and
 display a table containing the courses registered by that student. The page should allow the Admin to
 go back to the page with the student list and select a different student. Of course, this feature won't be
-fully implemented in this module, but the drop down list page can be implemented.>
+fully implemented in this module, but the drop down list page can be implemented.
+-->
