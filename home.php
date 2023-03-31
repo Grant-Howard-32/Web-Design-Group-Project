@@ -19,6 +19,7 @@ $username = $_SESSION['username'];
     <link rel="stylesheet" type="text/css" href="styles.css">
   </head>
   <body>
+    <span id="session" style="font-family: sans-serif; color: #22313f;">Hello, <?php echo $username; ?>.</span>
     <?php include 'navigation.php'; ?>
 
     <div class="menu">
