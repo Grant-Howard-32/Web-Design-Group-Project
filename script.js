@@ -117,22 +117,6 @@ function validateAddCourseForm() {
         enrollment_cap.focus()
         return false;
     }
-
-    alert(
-        "Semester: " + document.getElementById("semester").value  + "\n" +
-        "Year: " + year.value  + "\n" +
-        "Course Prefix: " + course_prefix.value  + "\n" +
-        "Course Number: " + course_number.value  + "\n" +
-        "Course Section: " + course_section.value + "\n" +
-        "Course Name: " + document.getElementById("course_name").value  + "\n" +
-        "Course Room: " + course_room.value + "\n" +
-        "Days Offered: " + document.getElementById("days_offered").value  + "\n" +
-        "Time: " + document.getElementById("time").value  + "\n" +
-        "Credit Hours: " + credit_hours.value + "\n" +
-        "Instructor First Name: " + instructor_first_name.value + "\n" +
-        "Instructor Last Name: " + instructor_last_name.value  + "\n" + 
-        "Enrollment Cap: " + enrollment_cap.value + "\n"
-    );
     
     return true;
 }
@@ -191,16 +175,6 @@ function validateRegisterDropCourseForm() {
         return false;
     }
 
-    alert(
-        "Student First Name: " + student_first_name.value + "\n" +
-        "Student Last Name: " + student_last_name.value  + "\n" + 
-        "Semester: " + document.getElementById("semester").value  + "\n" +
-        "Year: " + year.value  + "\n" +
-        "Course Prefix: " + course_prefix.value  + "\n" +
-        "Course Number: " + course_number.value  + "\n" +
-        "Course Section: " + course_section.value
-    );
-
     return true;
 }
 
@@ -239,6 +213,25 @@ function restrictEmailInput(input) {
     }
     }
 
+function restrictUserNameInput(input, error_id) {
+
+    const regex = regex = /student|instructor|admin/g;
+    const error = document.getElementById(error_id);
+    const userType = input.value;
+
+    if (regex.test(userType)) {
+        error.textContent = "";
+        input.classList.remove("error");
+        return true;
+      } else {
+        input.value = "";
+        error.innerHTML = 'Invalid Username.';
+        error.classList.add("error");
+        return false;
+      }
+
+    }
+
 function validateEnrollStudentForm() {
     const email_input = document.getElementById("email");
     const first_name_input = document.getElementById("first_name")
@@ -253,13 +246,6 @@ function validateEnrollStudentForm() {
     if (!email_flag || !first_name_flag || !last_name_flag || !major_flag) {
         return false;
     }
-
-    alert(
-        "Student First Name: " + first_name_input.value + "\n" +
-        "Student Last Name: " + last_name_input.value  + "\n" + 
-        "Email: " + email_input.value  + "\n" +
-        "Major: " + major.value
-    );
 
     return true;
     }
@@ -279,12 +265,17 @@ function validateAddInstructorForm() {
         return false;
     }
 
-    alert(
-        "Instructor First Name: " + first_name_input.value + "\n" +
-        "Instructor Last Name: " + last_name_input.value  + "\n" + 
-        "Email: " + email_input.value  + "\n" +
-        "Department: " + department.value
-    );
-
     return true;
     }
+
+    function validateAcceptUserForm() {
+        const username = document.getElementById("username");
+    
+        const username_flag = restrictUserNameInput(username, "user_name_error");
+    
+        if (!username_flag) {
+            return false;
+        }
+    
+        return true;
+        }
