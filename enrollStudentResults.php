@@ -14,13 +14,15 @@ $year = $_POST['year'];
     </head>
     <body>
         <h1 id="title">Enroll Student Results</h1>
-        <ul>
-            <li><strong>Instructor First Name:</strong> <?php echo $first_name ?></li>
-            <li><strong>Instructor Last Name:</strong> <?php echo $last_name ?></li>
-            <li><strong>Email:</strong> <?php echo $email ?></li>
-            <li><strong>Major:</strong> <?php echo $major ?></li>
-            <li><strong>Year:</strong> <?php echo $year ?></li>
-        </ul>
+        <div class="resultsBox"> 
+            <ul class="resultsList">
+                <li><strong>Instructor First Name:</strong> <?php echo $first_name ?></li>
+                <li><strong>Instructor Last Name:</strong> <?php echo $last_name ?></li>
+                <li><strong>Email:</strong> <?php echo $email ?></li>
+                <li><strong>Major:</strong> <?php echo $major ?></li>
+                <li><strong>Year:</strong> <?php echo $year ?></li>
+            </ul>
+        </div>
     </body>
     <?php include 'footer.php'; ?>
 </html>

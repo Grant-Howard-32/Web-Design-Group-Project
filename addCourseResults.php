@@ -30,21 +30,23 @@ $enrollment_cap = $_POST['enrollment_cap'];
     </head>
     <body>
         <h1 id="title">Add Course Results</h1>
-        <ul>
-            <li><strong>Semester:</strong> <?php echo $semester ?></li>
-            <li><strong>Year:</strong> <?php echo $year ?></li>
-            <li><strong>Course Prefix:</strong> <?php echo $course_prefix ?></li>
-            <li><strong>Course Number:</strong> <?php echo $course_number ?></li>
-            <li><strong>Course Section:</strong> <?php echo $course_section ?></li>
-            <li><strong>Course Name:</strong> <?php echo $course_name ?></li>
-            <li><strong>Room:</strong> <?php echo $course_room ?></li>
-            <li><strong>Days:</strong> <?php echo $days ?></li>
-            <li><strong>Times:</strong> <?php echo $times ?></li>
-            <li><strong>Credit Hours:</strong> <?php echo $credit_hours ?></li>
-            <li><strong>Instructor First Name:</strong> <?php echo $instructor_first_name ?></li>
-            <li><strong>Instructor Last Name:</strong> <?php echo $instructor_last_name ?></li>
-            <li><strong>Enrollment Cap:</strong> <?php echo $enrollment_cap ?></li>
-        </ul>
+        <div class="resultsBox"> 
+            <ul class="resultsList">
+                <li><strong>Semester:</strong> <?php echo $semester ?></li>
+                <li><strong>Year:</strong> <?php echo $year ?></li>
+                <li><strong>Course Prefix:</strong> <?php echo $course_prefix ?></li>
+                <li><strong>Course Number:</strong> <?php echo $course_number ?></li>
+                <li><strong>Course Section:</strong> <?php echo $course_section ?></li>
+                <li><strong>Course Name:</strong> <?php echo $course_name ?></li>
+                <li><strong>Room:</strong> <?php echo $course_room ?></li>
+                <li><strong>Days:</strong> <?php echo $days ?></li>
+                <li><strong>Times:</strong> <?php echo $times ?></li>
+                <li><strong>Credit Hours:</strong> <?php echo $credit_hours ?></li>
+                <li><strong>Instructor First Name:</strong> <?php echo $instructor_first_name ?></li>
+                <li><strong>Instructor Last Name:</strong> <?php echo $instructor_last_name ?></li>
+                <li><strong>Enrollment Cap:</strong> <?php echo $enrollment_cap ?></li>
+            </ul>
+        </div>
     </body>
     <?php include 'footer.php'; ?>
 </html>

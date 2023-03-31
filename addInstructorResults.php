@@ -14,13 +14,15 @@ $rank = $_POST['rank'];
     </head>
     <body>
         <h1 id="title">Add Instructor Results</h1>
-        <ul>
-            <li><strong>Instructor First Name:</strong> <?php echo $first_name ?></li>
-            <li><strong>Instructor Last Name:</strong> <?php echo $last_name ?></li>
-            <li><strong>Email:</strong> <?php echo $email ?></li>
-            <li><strong>Department:</strong> <?php echo $department ?></li>
-            <li><strong>Rank:</strong> <?php echo $rank ?></li>
-        </ul>
+        <div class="resultsBox"> 
+            <ul class="resultsList">
+                <li><strong>Instructor First Name:</strong> <?php echo $first_name ?></li>
+                <li><strong>Instructor Last Name:</strong> <?php echo $last_name ?></li>
+                <li><strong>Email:</strong> <?php echo $email ?></li>
+                <li><strong>Department:</strong> <?php echo $department ?></li>
+                <li><strong>Rank:</strong> <?php echo $rank ?></li>
+            </ul>
+        </div>
     </body>
     <?php include 'footer.php'; ?>
 </html>

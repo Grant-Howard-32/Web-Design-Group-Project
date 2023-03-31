@@ -275,3 +275,18 @@ footer a {
 footer a:hover {
   color: #8dc6ff;
 }
+
+.resultsBox {
+  margin: auto;
+  width: 400px;
+  text-align: center;
+}
+
+.resultsList {
+  margin-left: -50px;
+	display: inline-block; 
+	text-align: left; 
+  list-style-type: none;
+  font-family: sans-serif;
+  color: #22313f;
+}
