@@ -1,5 +1,6 @@
 <?php
 session_start();
+ini_set('session.gc_maxlifetime', 60);
 
 if (isset($_POST['username'])) {
     $username = $_POST['username'];
