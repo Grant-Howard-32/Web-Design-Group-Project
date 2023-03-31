@@ -1,4 +1,16 @@
-<?php include 'timeout.php'; ?>
+<?php
+session_start();
+
+// Redirect the user to the login page if not logged in or session has timed out
+if (!isset($_SESSION['username']) || (time()-$_SESSION["login_time_stamp"] > 60)) {
+    session_unset();
+    session_destroy();
+    header("Location: login.html");
+    exit();
+}
+
+$username = $_SESSION['username'];
+?>
 
 <!DOCTYPE html>
 <html>
@@ -22,6 +34,15 @@
       <a href="#usage">Usage</a>
       <a href="#navigation">Navigation Menu</a>
       <a href="#overview">Overview of the Course Registration System</a>
+
+      <a href="#login">Login Page</a>
+      <a href="#Session">Session PHP Page</a>
+      <a href="#footer">Footer PHP Page</a>
+      <a href="#crs">View Courses Registered by Student</a>
+      <a href="#vsr">View Students Registered in Course</a>
+      <a href="#cti">View Courses Taught by Instructor</a>
+      <a href="#srs">View Students Registered by Semester</a>
+
       <a href="#summary">Summary of the Contents of Each Page</a>
       <a href="#formel">Desciption of All Form Elements</a>
       <a href="#additional">Additional Features</a>
@@ -31,7 +52,7 @@
   
   <div class="main">
   <h2 id = "intro">Introduction</h2>
-  <p>This manual provides information on how to use and make changes to the Module 1 frontend code.</p>
+  <p>This manual provides information on how to use and make changes to the Module 3 code. This includes HTML, CSS, JavaScript, and php.</p>
   <br>
   <h2 id = "install">Installation</h2>
   <p>To install this webpage's code, follow these steps:</p>
@@ -43,7 +64,7 @@
   <br>
 
   <h2 id = "usage">Usage</h2>
-  <p>This section will give a brief description of the system:</p>
+  <p>This section will give a brief description of the system; moreover, only users with the necessary permissions will be able to access certain pages:</p>
   <ul>
     <li id = "navigation"> <b> Navigation Menu: This menu can be seen at the top of each webpage and it's code within the first (nav) section of the body. </b> </li>
     <ul> 
@@ -64,6 +85,65 @@
       </li> 
     </ul>
     <br>
+
+
+    <li id = "login"> <b> Login Page </b> </li>
+    <ul>
+      <li> Upon clicking the login button, the page should verify the entered user name, store it as a session variable, 
+        and redirect the user to the main menu page or display an error message if the user name is invalid. This page is written in PHP, HTML, CSS, and JS. There are only 
+        three options for the user login.
+      </li> 
+    </ul>
+    <br>
+    
+    <li id = "Session"> <b> Session PHP Page </b> </li>
+    <ul>
+      <li> This is a PHP page that keeps track of the user session; a label on top greets the user. If the user chooses to log out, then the session ends.
+      </li> 
+    </ul>
+    <br>
+    
+    <li id = "footer"> <b> Footer PHP Page </b> </li>
+    <ul>
+      <li> This is a PHP page creates a link that takes the user back to the home page.
+      </li> 
+    </ul>
+    <br>
+
+    <li id = "crs"> <b> View Courses Registered by Student </b> </li>
+    <ul>
+      <li> This is a page that creates a table of courses registered by students, which uses php to keep track of the person accesing the page as well as 
+        switcing the table based on student.
+      </li> 
+    </ul>
+    <br>
+
+    <li id = "vsr"> <b> View Students Registered in Course </b> </li>
+    <ul>
+      <li> This is a page that creates a table of students registered for a course, which uses php to keep track of the person accesing the page as well as 
+        switcing the table based on course.
+      </li> 
+    </ul>
+    <br>
+
+    <li id = "cti"> <b> View Courses Taught by Instructor </b> </li>
+    <ul>
+      <li> This is a page that creates a table of courses that are taught by each instructor. 
+        In PHP, the table data can be populated from a database using SQL queries and then displayed using loops and HTML table tags.
+      </li> 
+    </ul>
+    <br>
+
+
+    <li id = "srs"> <b> View Students Registered by Semester </b> </li>
+    <ul>
+      <li> This is a page that creates a table of students registered for each semester. The user can select a semester, which will take them to a subsequent page with
+        a table of students registered for that specific semester. 
+        In PHP, the table data can be populated from a database using SQL queries and then displayed using loops and HTML table tags.
+      </li> 
+    </ul>
+    <br>
+
 
     <li id="summary"> <b> Summary of the Contents of Each Page</b> </li>
     <ul>
