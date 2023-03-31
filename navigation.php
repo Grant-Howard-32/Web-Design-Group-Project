@@ -3,7 +3,7 @@
     <a href="#">
         <img src="Icons/aperture.svg">
     </a>
-    <p>Hello, <?php echo $username; ?>.</p>
+    <span>Hello, <?php echo $username; ?></span>
     </div>
     <div class="menu">
     <a href="home.php">

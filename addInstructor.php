@@ -1,15 +1,10 @@
-<?php
-session_start();
+<?php include 'timeout.php'; 
 
-// Redirect the user to the login page if not logged in or session has timed out
-if (!isset($_SESSION['username']) || (time()-$_SESSION["login_time_stamp"] > 60)) {
-    session_unset();
-    session_destroy();
-    header("Location: login.html");
+  if ($username != 'admin') {
+    echo "Access Denied. You do not have permission to access this page.<br>";
+    echo "<a href='home.php'>Click here</a> to return to the homepage.";
     exit();
-}
-
-$username = $_SESSION['username'];
+  }
 ?>
 
 <!DOCTYPE html>
@@ -25,7 +20,7 @@ $username = $_SESSION['username'];
 
     <div class="form_container">
         <h1 id="title">Add Instructor</h1>
-        <form onsubmit="return validateAddInstructorForm()" action="enroll.php" method="post">
+        <form onsubmit="return validateAddInstructorForm()" action="addInstructorResults.php" method="post">
   
           <label for="first_name">First Name:</label>
           <input type="text" id="first_name" name="first_name" max="50" required>

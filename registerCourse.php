@@ -1,15 +1,10 @@
-<?php
-session_start();
+<?php include 'timeout.php'; 
 
-// Redirect the user to the login page if not logged in or session has timed out
-if (!isset($_SESSION['username']) || (time()-$_SESSION["login_time_stamp"] > 60)) {
-    session_unset();
-    session_destroy();
-    header("Location: login.html");
+  if ($username != 'admin' && $username != 'student') {
+    echo "Access Denied. You do not have permission to access this page.<br>";
+    echo "<a href='home.php'>Click here</a> to return to the homepage.";
     exit();
-}
-
-$username = $_SESSION['username'];
+  }
 ?>
 
 <!DOCTYPE html>
@@ -23,7 +18,7 @@ $username = $_SESSION['username'];
     <?php include 'navigation.php'; ?>
     <h1 id="title">Register Course</h1>
     <div class="form_container">
-      <form onsubmit="return validateRegisterDropCourseForm();" action="dropCourse.php" method="post">
+      <form onsubmit="return validateRegisterDropCourseForm();" action="registerCourseResults.php" method="post">
         <label for="student_first_name">Student First Name:</label>
         <input type="text" id="student_first_name" name="student_first_name" max="50" required>
 

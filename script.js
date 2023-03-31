@@ -49,12 +49,12 @@ function validateAddCourseForm() {
     const instructor_last_name = document.getElementById("instructor_last_name");
     const enrollment_cap = document.getElementById("enrollment_cap");
 
-    if (isNaN(year.value)) {
-        alert("Year must be a number");
+    if (!/^[0-9]{4}$/.test(year.value)) {
+        alert("Enter a valid year");
         year.focus()
         return false;
     }
-    if (year.value < 2023 || year.value > 9999) {
+    if (year.value < 2023) {
         alert("Year must be after 2022");
         year.focus()
         return false;
@@ -66,7 +66,7 @@ function validateAddCourseForm() {
         return false;
     }
 
-    if (course_number.value < 1 || course_number.value > 499) {
+    if (!/^[0-9]{3}$/.test(course_number.value) || course_number.value > 499) {
         alert("Course Number Must be Between 001 and 499");
         course_number.focus()
         return false;
@@ -117,22 +117,6 @@ function validateAddCourseForm() {
         enrollment_cap.focus()
         return false;
     }
-
-    alert(
-        "Semester: " + document.getElementById("semester").value  + "\n" +
-        "Year: " + year.value  + "\n" +
-        "Course Prefix: " + course_prefix.value  + "\n" +
-        "Course Number: " + course_number.value  + "\n" +
-        "Course Section: " + course_section.value + "\n" +
-        "Course Name: " + document.getElementById("course_name").value  + "\n" +
-        "Course Room: " + course_room.value + "\n" +
-        "Days Offered: " + document.getElementById("days_offered").value  + "\n" +
-        "Time: " + document.getElementById("time").value  + "\n" +
-        "Credit Hours: " + credit_hours.value + "\n" +
-        "Instructor First Name: " + instructor_first_name.value + "\n" +
-        "Instructor Last Name: " + instructor_last_name.value  + "\n" + 
-        "Enrollment Cap: " + enrollment_cap.value + "\n"
-    );
     
     return true;
 }
@@ -151,18 +135,18 @@ function validateRegisterDropCourseForm() {
         return false;
     }
 
-    if (!/^[a-zA-Z0-9 ]*$/.test(student_last_name.value)) {
+    if (!/^[a-zA-Z0-9]*$/.test(student_last_name.value)) {
         alert("Please enter a valid Last Name");
         student_last_name.focus();
         return false;
     }
 
-    if (isNaN(year.value)) {
-        alert("Year must be a number");
+    if (!/^[0-9]{4}$/.test(year.value)) {
+        alert("Enter a valid year");
         year.focus()
         return false;
     }
-    if (year.value < 2023 || year.value > 9999) {
+    if (year.value < 2023) {
         alert("Year must be after 2022");
         year.focus()
         return false;
@@ -174,7 +158,7 @@ function validateRegisterDropCourseForm() {
         return false;
     }
 
-    if (course_number.value < 1 || course_number.value > 499) {
+    if (!/^[0-9]{3}$/.test(course_number.value) || course_number.value > 499) {
         alert("Course Number Must be Between 001 and 499");
         course_number.focus()
         return false;
@@ -190,16 +174,6 @@ function validateRegisterDropCourseForm() {
         course_section.focus()
         return false;
     }
-
-    alert(
-        "Student First Name: " + student_first_name.value + "\n" +
-        "Student Last Name: " + student_last_name.value  + "\n" + 
-        "Semester: " + document.getElementById("semester").value  + "\n" +
-        "Year: " + year.value  + "\n" +
-        "Course Prefix: " + course_prefix.value  + "\n" +
-        "Course Number: " + course_number.value  + "\n" +
-        "Course Section: " + course_section.value
-    );
 
     return true;
 }
@@ -239,6 +213,25 @@ function restrictEmailInput(input) {
     }
     }
 
+function restrictUserNameInput(input, error_id) {
+
+    const regex = regex = /student|instructor|admin/g;
+    const error = document.getElementById(error_id);
+    const userType = input.value;
+
+    if (regex.test(userType)) {
+        error.textContent = "";
+        input.classList.remove("error");
+        return true;
+      } else {
+        input.value = "";
+        error.innerHTML = 'Invalid Username.';
+        error.classList.add("error");
+        return false;
+      }
+
+    }
+
 function validateEnrollStudentForm() {
     const email_input = document.getElementById("email");
     const first_name_input = document.getElementById("first_name")
@@ -253,13 +246,6 @@ function validateEnrollStudentForm() {
     if (!email_flag || !first_name_flag || !last_name_flag || !major_flag) {
         return false;
     }
-
-    alert(
-        "Student First Name: " + first_name_input.value + "\n" +
-        "Student Last Name: " + last_name_input.value  + "\n" + 
-        "Email: " + email_input.value  + "\n" +
-        "Major: " + major.value
-    );
 
     return true;
     }
@@ -279,12 +265,17 @@ function validateAddInstructorForm() {
         return false;
     }
 
-    alert(
-        "Instructor First Name: " + first_name_input.value + "\n" +
-        "Instructor Last Name: " + last_name_input.value  + "\n" + 
-        "Email: " + email_input.value  + "\n" +
-        "Department: " + department.value
-    );
-
     return true;
     }
+
+    function validateAcceptUserForm() {
+        const username = document.getElementById("username");
+    
+        const username_flag = restrictUserNameInput(username, "user_name_error");
+    
+        if (!username_flag) {
+            return false;
+        }
+    
+        return true;
+        }
