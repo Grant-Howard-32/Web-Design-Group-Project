@@ -3,33 +3,81 @@
     <a href="#">
         <img src="Icons/aperture.svg">
     </a>
+    <p>Hello, <?php echo $username; ?>.</p>
     </div>
     <div class="menu">
     <a href="home.php">
         <img src="Icons/home.svg" title="Home">
     </a>
-    <div class="dropdown">
-        <img src="Icons/user-plus.svg" title="Add Instructor / Enroll Student">
-        <div class="dropdown-content">
-        <a href="addInstructor.php">Add Instructor</a>
-        <a href="enrollStudent.php">Enroll Student</a>
-        </div>
-    </div>
+    <?php if ($username == 'admin') {
+        echo <<<'HTML'
+            <div class="dropdown">
+                <img src="Icons/user-plus.svg" title="Add Instructor / Enroll Student">
+                <div class="dropdown-content">
+                    <a href="enrollStudent.php">Enroll Student</a>
+                    <a href="addInstructor.php">Add Instructor</a>
+                </div>
+            </div>
+        HTML;
+    }?>
     <div class="dropdown">
         <img src="Icons/plus-circle.svg" title="Modify Courses">
         <div class="dropdown-content">
-        <a href="addCourse.php">Add Course</a>
-        <a href="registerCourse.php">Register Course</a>
-        <a href="dropCourse.php">Drop Course</a>
+        <?php if ($username == 'admin' || $username == 'instructor') {
+            echo <<<'HTML'
+                <a href="addCourse.php">Add Course</a>
+            HTML;
+        }?>
+        <?php if ($username == 'admin' || $username == 'student') {
+            echo <<<'HTML'
+                <a href="registerCourse.php">Register Course</a>
+            HTML;
+        }?>
+        <?php if ($username == 'admin' || $username == 'student') {
+            echo <<<'HTML'
+                <a href="dropCourse.php">Drop Course</a>
+            HTML;
+        }?>
         </div>
     </div>
     <div class="dropdown">
         <img src="Icons/calendar.svg" title="Calendar">
         <div class="dropdown-content">
-        <a href="selectStudent.php">Courses Registered</a>
-        <a href="selectCourse.php">Students Registered to Course</a>
-        <a href="selectInstructor.php">Courses Taught</a>
-        <a href="selectSemester.php">Students Registered by Semester</a>
+        <?php if ($username == 'admin') {
+            echo <<<'HTML'
+                <a href="selectStudent.php">Courses Registered</a>
+            HTML;
+        }?>
+        <?php if ($username == 'student') {
+            echo <<<'HTML'
+                <a href="coursesRegistered.php">Courses Registered</a>
+            HTML;
+        }?>
+        <?php if ($username == 'admin') {
+            echo <<<'HTML'
+                <a href="selectCourse.php">Students Registered to Course</a>
+            HTML;
+        }?>
+        <?php if ($username == 'instructor') {
+            echo <<<'HTML'
+                <a href="studentsRegisteredToCourse.php">Students Registered to Course</a>
+            HTML;
+        }?>
+        <?php if ($username == 'admin') {
+            echo <<<'HTML'
+                <a href="selectInstructor.php">Courses Taught</a>
+            HTML;
+        }?>
+        <?php if ($username == 'instructor') {
+            echo <<<'HTML'
+                <a href="coursesTaught.php">Courses Taught</a>
+            HTML;
+        }?>
+        <?php if ($username == 'admin') {
+            echo <<<'HTML'
+                <a href="selectSemester.php">Students Registered by Semester</a>
+            HTML;
+        }?>
         </div>
     </div>
     <a href="usermanualv4.php">

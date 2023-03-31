@@ -2,7 +2,7 @@
 session_start();
 
 // Redirect the user to the login page if not logged in or session has timed out
-if (!isset($_SESSION['username']) || (time()-$_SESSION["login_time_stamp"] > 5)) {
+if (!isset($_SESSION['username']) || (time()-$_SESSION["login_time_stamp"] > 60)) {
     session_unset();
     session_destroy();
     header("Location: login.html");
@@ -19,7 +19,6 @@ $username = $_SESSION['username'];
     <link rel="stylesheet" type="text/css" href="styles.css">
   </head>
   <body>
-    <span id="session" style="font-family: sans-serif; color: #22313f;">Hello, <?php echo $username; ?>.</span>
     <?php include 'navigation.php'; ?>
 
     <div class="menu">

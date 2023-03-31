@@ -24,7 +24,6 @@ $username = $_SESSION['username'];
   </style>
   </head>
   <body>
-    <span style="font-family: sans-serif; color: #22313f;">Hello, <?php echo $username; ?>.</span>
     <?php include 'navigation.php'; ?>
     
     <h1 id="title">Programmer's Manual</h1>

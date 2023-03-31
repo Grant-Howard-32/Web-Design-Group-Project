@@ -20,7 +20,6 @@ $username = $_SESSION['username'];
     <script src="script.js"></script>
   </head>
   <body>
-    <span style="font-family: sans-serif; color: #22313f;">Hello, <?php echo $username; ?>.</span>
     <?php include 'navigation.php'; ?>
     <h1 id="title">Courses Taught</h1>
     <div class="form_container">
@@ -38,8 +37,12 @@ $username = $_SESSION['username'];
             </tr>
             </thead>
             <br>
-            <button class="selectButton" onclick="location.href='selectInstructor.php'">Select Different Instructor</button>
-        </table>
+            <?php if ($username == 'admin') {
+              echo <<<'HTML'
+                <button class="selectButton" onclick="location.href='selectInstructor.php'">Select Different Instructor</button>
+              HTML;
+            }?>
+            </table>
     </div>
     <?php include 'footer.php'; ?>
   </body>

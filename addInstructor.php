@@ -21,7 +21,6 @@ $username = $_SESSION['username'];
     <script src="script.js"></script>
   </head>
   <body>
-    <span style="font-family: sans-serif; color: #22313f;">Hello, <?php echo $username; ?>.</span>
     <?php include 'navigation.php'; ?>
 
     <div class="form_container">
@@ -41,7 +40,7 @@ $username = $_SESSION['username'];
           <p id="email_error"></p>
   
           <label for="department">Department:</label>
-          <input type="text" id="department" name="department" max="50" required>
+          <input type="text" id="department" name="department" max="50">
           <p id="department_error"></p>
   
           <label for="rank">Rank:</label>

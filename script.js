@@ -66,8 +66,8 @@ function validateAddCourseForm() {
         return false;
     }
 
-    if (course_number.value < 100 || course_number.value > 499) {
-        alert("Course Number Must be Between 100 and 499");
+    if (course_number.value < 1 || course_number.value > 499) {
+        alert("Course Number Must be Between 001 and 499");
         course_number.focus()
         return false;
     }
@@ -174,8 +174,8 @@ function validateRegisterDropCourseForm() {
         return false;
     }
 
-    if (course_number.value < 100 || course_number.value > 499) {
-        alert("Course Number Must be Between 100 and 499");
+    if (course_number.value < 1 || course_number.value > 499) {
+        alert("Course Number Must be Between 001 and 499");
         course_number.focus()
         return false;
     }
@@ -254,6 +254,13 @@ function validateEnrollStudentForm() {
         return false;
     }
 
+    alert(
+        "Student First Name: " + first_name_input.value + "\n" +
+        "Student Last Name: " + last_name_input.value  + "\n" + 
+        "Email: " + email_input.value  + "\n" +
+        "Major: " + major.value
+    );
+
     return true;
     }
 
@@ -271,6 +278,13 @@ function validateAddInstructorForm() {
     if (!email_flag || !first_name_flag || !last_name_flag || !department_flag) {
         return false;
     }
+
+    alert(
+        "Instructor First Name: " + first_name_input.value + "\n" +
+        "Instructor Last Name: " + last_name_input.value  + "\n" + 
+        "Email: " + email_input.value  + "\n" +
+        "Department: " + department.value
+    );
 
     return true;
     }
