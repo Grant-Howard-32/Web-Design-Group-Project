@@ -2,7 +2,7 @@
 session_start();
 
 // Redirect the user to the login page if not logged in or session has timed out
-if (!isset($_SESSION['username']) || (time()-$_SESSION["login_time_stamp"] > 5)) {
+if (!isset($_SESSION['username']) || (time()-$_SESSION["login_time_stamp"] > 60)) {
     session_unset();
     session_destroy();
     header("Location: login.html");
