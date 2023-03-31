@@ -41,7 +41,7 @@
         </div>
     </div>
     <div class="dropdown">
-        <img src="Icons/calendar.svg" title="Calendar">
+        <img src="Icons/calendar.svg" title="Courses and Students">
         <div class="dropdown-content">
         <?php if ($username == 'admin') {
             echo <<<'HTML'

@@ -40,9 +40,9 @@ $username = $_SESSION['username'];
       <p>This consists of three separate pages for adding a course, registering for a course, or dropping a course. Simply hover over the icon, and select one of the three pages from the dropdown menu that appears.</p>
       <div style="display: flex; align-items: center;">
         <img src="Icons/calendar.svg">
-        <h1 style="margin: 0 10px;">Calendar</h1>
+        <h1 style="margin: 0 10px;">Courses and Students</h1>
       </div>
-      <p>This page allows you to view your schedule as it currently stands.</p>
+      <p>This consists of four separate pages for courses registered, students registered to a particular course, courses taught, or students registered by semester. Simply hover over the icon, and select one of the four pages from the dropdown menu that appears.</p>
       <div style="display: flex; align-items: center;">
         <img src="Icons/paperclip.svg">
         <h1 style="margin: 0 10px;">User Manual</h1>
