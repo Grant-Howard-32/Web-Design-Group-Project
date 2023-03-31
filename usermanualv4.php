@@ -2,7 +2,7 @@
 session_start();
 
 // Redirect the user to the login page if not logged in or session has timed out
-if (!isset($_SESSION['username']) || (time()-$_SESSION["login_time_stamp"] > 1000)) {
+if (!isset($_SESSION['username']) || (time()-$_SESSION["login_time_stamp"] > 60)) {
     session_unset();
     session_destroy();
     header("Location: login.html");
@@ -41,6 +41,7 @@ $username = $_SESSION['username'];
     <div class="main">
       <h2 id="introduction">Introduction</h2>
       <p>This manual will give you clear instructions on how to properly use the program. To begin, simply click on one of the links on the left to be taken to a set of instructions for completing various tasks.</p>
+      <p>Overall, this program is designed to run as a replacement for the Marietta College self service portal, with the user able to sign in as a Student, Instructor, or Admin. Students are able to register for courses, modify their enrollment in courses, and view their schedule. Instructors are able to view their courses, along with the students enrolled in those courses. Admins are able to do anything on the site, including enrolling a new Student, adding a new Instructor, and everything in between. The program also comes with a Programming Manual for programmers to understand the code that makes the program possible.</p>
       <p>Any instruction marked with "*" denotes a required field.</p>
       <br>
     </div>

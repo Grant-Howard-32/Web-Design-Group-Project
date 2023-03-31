@@ -176,7 +176,7 @@ nav .menu a:hover:before {
 #secondary-nav {
   position: fixed;
   z-index: 1;
-  top: 110px;
+  margin-top: -70px;
   left: 10px;
   height: auto;
   width: 150px;
