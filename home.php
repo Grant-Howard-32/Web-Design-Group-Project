@@ -19,7 +19,6 @@ $username = $_SESSION['username'];
     <link rel="stylesheet" type="text/css" href="styles.css">
   </head>
   <body>
-    <span id="session" style="font-family: sans-serif; color: #22313f;">Hello, <?php echo $username; ?>.</span>
     <?php include 'navigation.php'; ?>
 
     <div class="menu">
@@ -55,6 +54,5 @@ $username = $_SESSION['username'];
       </div>
       <p>This page details the code used to implement the entire program, along with how a programmer can access it.</p>
     </div>  
-    <?php include 'footer.php'; ?>
   </body>
 </html>

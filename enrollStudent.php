@@ -27,7 +27,6 @@ if ($username != 'admin') {
     <script src="script.js"></script>
   </head>
   <body>
-    <span style="font-family: sans-serif; color: #22313f;">Hello, <?php echo $username; ?>.</span>
     <?php include 'navigation.php'; ?>
     
     <h1 id="title">Enroll Student</h1>
@@ -47,7 +46,7 @@ if ($username != 'admin') {
         <p id="email_error"></p>
 
         <label for="major">Major:</label>
-        <input type="text" id="major" name="major" max="50" required>
+        <input type="text" id="major" name="major" max="50">
         <p id="major_error"></p>
 
         <label for="year">Year:</label>

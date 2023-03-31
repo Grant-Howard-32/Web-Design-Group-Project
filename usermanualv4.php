@@ -19,7 +19,6 @@ $username = $_SESSION['username'];
     <link rel="stylesheet" type="text/css" href="styles.css">
   </head>
   <body>
-    <span style="font-family: sans-serif; color: #22313f;">Hello, <?php echo $username; ?>.</span>
     <?php include 'navigation.php'; ?>
     <h1 id="title">User Manual</h1>
 
