@@ -1,15 +1,10 @@
-<?php
-session_start();
-
-// Redirect the user to the login page if not logged in or session has timed out
-if (!isset($_SESSION['username']) || (time()-$_SESSION["login_time_stamp"] > 60)) {
-    session_unset();
-    session_destroy();
-    header("Location: login.html");
+<?php include 'timeout.php'; 
+  
+  if ($username != 'admin') {
+    echo "Access Denied. You do not have permission to access this page.<br>";
+    echo "<a href='home.php'>Click here</a> to return to the homepage.";
     exit();
-}
-
-$username = $_SESSION['username'];
+  }
 ?>
 
 <!DOCTYPE html>
@@ -36,10 +31,3 @@ $username = $_SESSION['username'];
     <?php include 'footer.php'; ?>
   </body>
 </html>
-
-<!--
-Note that if an Instructor is viewing the page, only those courses taught by that instructor should be
-displayed. If an Admin views the page, there must be a separate page where the Admin can select an
-instructor first. After selecting an instructor, the Admin will go to the page with the table displaying
-the courses taught by that instructor.
--->

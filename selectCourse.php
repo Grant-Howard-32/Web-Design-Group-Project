@@ -1,15 +1,10 @@
-<?php
-session_start();
-
-// Redirect the user to the login page if not logged in or session has timed out
-if (!isset($_SESSION['username']) || (time()-$_SESSION["login_time_stamp"] > 60)) {
-    session_unset();
-    session_destroy();
-    header("Location: login.html");
+<?php include 'timeout.php'; 
+  
+  if ($username != 'admin') {
+    echo "Access Denied. You do not have permission to access this page.<br>";
+    echo "<a href='home.php'>Click here</a> to return to the homepage.";
     exit();
-}
-
-$username = $_SESSION['username'];
+  }
 ?>
 
 <!DOCTYPE html>
@@ -36,12 +31,3 @@ $username = $_SESSION['username'];
     <?php include 'footer.php'; ?>
   </body>
 </html>
-
-<!--
-Instructor and Admin Views
-The user should be able to select the course first. This will require a separate page that displays all of
-the courses available to the user. If an Instructor views this page, a list of that instructor's courses will
-appear as options in the list. If an Admin views this page, a list of all courses should appear as options
-in the list. Either way, selecting one of the courses in the list will display the student information in the
-table on the other page
--->
