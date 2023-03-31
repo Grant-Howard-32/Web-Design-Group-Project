@@ -7,10 +7,10 @@ if (isset($_POST['username'])) {
 
     // Check if the username is valid
     $valid_usernames = array("student", "instructor", "admin");
-    if (!in_array(strtolower($username), $valid_usernames)) {
+    if (!in_array($username, $valid_usernames)) {
         header("Location: login.php?error=invalidusername");
         exit();
-    }
+    } 
 
     // Set the username session variable
     $_SESSION['username'] = $username;

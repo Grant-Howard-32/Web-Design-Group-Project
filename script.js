@@ -213,25 +213,6 @@ function restrictEmailInput(input) {
     }
     }
 
-function restrictUserNameInput(input, error_id) {
-
-    const regex = regex = /student|instructor|admin/g;
-    const error = document.getElementById(error_id);
-    const userType = input.value;
-
-    if (regex.test(userType)) {
-        error.textContent = "";
-        input.classList.remove("error");
-        return true;
-      } else {
-        input.value = "";
-        error.innerHTML = 'Invalid Username.';
-        error.classList.add("error");
-        return false;
-      }
-
-    }
-
 function validateEnrollStudentForm() {
     const email_input = document.getElementById("email");
     const first_name_input = document.getElementById("first_name")
@@ -266,16 +247,34 @@ function validateAddInstructorForm() {
     }
 
     return true;
-    }
+}
 
-    function validateAcceptUserForm() {
-        const username = document.getElementById("username");
-    
-        const username_flag = restrictUserNameInput(username, "user_name_error");
-    
-        if (!username_flag) {
-            return false;
-        }
-    
+function restrictUserNameInput(input, error_id) {
+
+    const regex = /student|instructor|admin/g;
+    const error = document.getElementById(error_id);
+    const userType = input.value;
+
+    if (regex.test(userType)) {
+        error.textContent = "";
+        input.classList.remove("error");
         return true;
-        }
+    } else {
+        input.value = "";
+        error.innerHTML = 'Invalid Username.';
+        error.classList.add("error");
+        return false;
+    }
+}
+
+function validateAcceptUserForm() {
+    const username = document.getElementById("username");
+    
+    const username_flag = restrictUserNameInput(username, "user_name_error");
+
+    if (!username_flag) {
+        return false;
+    }
+    
+    return true;
+}

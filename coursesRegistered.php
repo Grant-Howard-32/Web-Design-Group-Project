@@ -7,9 +7,6 @@
   }
 ?>
 
-$username = $_SESSION['username'];
-?>
-
 <!DOCTYPE html>
 <html>
   <head>

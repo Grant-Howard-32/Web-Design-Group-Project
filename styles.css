@@ -180,15 +180,16 @@ nav .menu a:hover:before {
   left: 10px;
   height: auto;
   width: 150px;
-  padding: 8px 0;
+  padding: 6px 0;
   background-color: #f5f5f5;
   overflow-x: hidden;
 }
 
 #secondary-nav a {
-  padding: 6px 8px 6px 16px;
+  padding: 3px 8px 4px 16px;
   text-decoration: none;
   display: block;
+  font-size: 15px;
 }
 
 #secondary-nav a:hover {
@@ -241,8 +242,6 @@ tr:last-of-type td:last-of-type {
   padding: 10px;
   border-radius: 4px;
 }
-
-
 
 footer {
   font-family: sans-serif;
