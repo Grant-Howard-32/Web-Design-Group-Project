@@ -1,3 +1,17 @@
+<?php
+session_start();
+
+// Redirect the user to the login page if not logged in or session has timed out
+if (!isset($_SESSION['username']) || (time()-$_SESSION["login_time_stamp"] > 5)) {
+    session_unset();
+    session_destroy();
+    header("Location: login.html");
+    exit();
+}
+
+$username = $_SESSION['username'];
+?>
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -6,6 +20,7 @@
     <script src="script.js"></script>
   </head>
   <body>
+    <span style="font-family: sans-serif; color: #22313f;">Hello, <?php echo $username; ?>.</span>
     <?php include 'navigation.php'; ?>
     <h1 id="title">Register Course</h1>
     <div class="form_container">
@@ -39,5 +54,6 @@
         <input type="submit" value="Register">
       </form>
     </div>
+    <?php include 'footer.php'; ?>
   </body>
 </html>
