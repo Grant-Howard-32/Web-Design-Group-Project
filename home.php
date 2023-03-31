@@ -29,9 +29,9 @@
       <p>This consists of three separate pages for adding a course, registering for a course, or dropping a course. Simply hover over the icon, and select one of the three pages from the dropdown menu that appears.</p>
       <div style="display: flex; align-items: center;">
         <img src="Icons/calendar.svg">
-        <h1 style="margin: 0 10px;">Calendar</h1>
+        <h1 style="margin: 0 10px;">Courses and Students</h1>
       </div>
-      <p>This page allows you to view your schedule as it currently stands.</p>
+      <p>If an Admin is logged in, this consists of four separate pages for viewing courses registered, students registered for a particular course, courses taught by a particular instructor, and students registered by semester. If a Student is logged in, the only viewable page is "Courses Registered". If an Instructor is logged in, "Students Registered to Course" and "Courses Taught" can be viewed.</p>
       <div style="display: flex; align-items: center;">
         <img src="Icons/paperclip.svg">
         <h1 style="margin: 0 10px;">User Manual</h1>
