@@ -24,7 +24,7 @@ $username = $_SESSION['username'];
 
     <h1 id="title">Add Course</h1>
     <div class="form_container">
-      <form onsubmit="return validateAddCourseForm();" action="addCourse.php" method="post">
+      <form onsubmit="return validateAddCourseForm();" action="addCourseResults.php" method="post">
         <label for="semester">Semester:</label>
         <select id="semester" name="semester" required>
           <option value="">Please select one</option>
@@ -52,7 +52,7 @@ $username = $_SESSION['username'];
         <input type="text" id="course_room" name="course_room" max="50">
 
         <label for="days">Select Days:</label>
-        <select id="days" onchange="updateTimes()">
+        <select id="days" name="days" onchange="updateTimes()">
           <option value="">--Select--</option>
           <option value="mwf">Monday, Wednesday, Friday</option>
           <option value="tth">Tuesday, Thursday</option>

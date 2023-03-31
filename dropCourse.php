@@ -23,7 +23,7 @@ $username = $_SESSION['username'];
     <?php include 'navigation.php'; ?>
     <h1 id="title">Drop Course</h1>
     <div class="form_container">
-      <form onsubmit="return validateRegisterDropCourseForm();" action="dropCourse.php" method="post">
+      <form onsubmit="return validateRegisterDropCourseForm();" action="dropCourseResults.php" method="post">
         <label for="student_first_name">Student First Name:</label>
         <input type="text" id="student_first_name" name="student_first_name" max="50" required>
 
