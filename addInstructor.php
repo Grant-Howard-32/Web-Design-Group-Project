@@ -1,6 +1,6 @@
 <?php include 'timeout.php'; 
 
-  if ($username != 'admin') {
+  if ($_SESSION['username'] != 'admin') {
     echo "Access Denied. You do not have permission to access this page.<br>";
     echo "<a href='home.php'>Click here</a> to return to the homepage.";
     exit();
@@ -38,8 +38,8 @@
           <input type="text" id="department" name="department" max="50">
           <p id="department_error"></p>
   
-          <label for="rank">Rank:</label>
-          <select id="rank" name="rank" required>
+          <label for="instructor_rank">Rank:</label>
+          <select id="instructor_rank" name="instructor_rank" required>
             <option value="">Please select one</option>
             <option value="Instructor">Instructor</option>
             <option value="Assistant Professor">Assistant Professor</option>

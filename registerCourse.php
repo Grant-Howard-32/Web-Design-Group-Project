@@ -1,10 +1,13 @@
 <?php include 'timeout.php'; 
 
-  if ($username != 'admin' && $username != 'student') {
+  if ($_SESSION['username'] != 'admin' && $_SESSION['username'] != 'student') {
     echo "Access Denied. You do not have permission to access this page.<br>";
     echo "<a href='home.php'>Click here</a> to return to the homepage.";
     exit();
   }
+
+  // Include the config.php file to establish a connection to the database
+  require_once 'config.php';
 ?>
 
 <!DOCTYPE html>
@@ -19,31 +22,58 @@
     <h1 id="title">Register Course</h1>
     <div class="form_container">
       <form onsubmit="return validateRegisterDropCourseForm();" action="registerCourseResults.php" method="post">
-        <label for="student_first_name">Student First Name:</label>
-        <input type="text" id="student_first_name" name="student_first_name" max="50" required>
+      <?php
+          // SQL query to join courses and instructors tables
+          $sql = "SELECT student_id, first_name, last_name
+                  FROM students;";
 
-        <label for="student_last_name">Student Last Name:</label>
-        <input type="text" id="student_last_name" name="student_last_name" max="50" required>
+          // Execute the query
+          $result = $conn->prepare($sql);
+          $result->execute();
+          
+        ?>
+
+        <label for="student">Select Student:</label>
+        <select name="student" id="student">
+            <?php
+              // Generate options for the dropdown
+              $rows = $result->fetchAll(PDO::FETCH_ASSOC);
+              if (!empty($rows)) {
+                  foreach ($rows as $row) {
+                      echo '<option value="' . $row["student_id"] . '">' . $row["first_name"] . ' ' . $row["last_name"] . '</option>';
+                  }
+              } else {
+                  echo '<option value="">No students found</option>';
+              }
+            ?>
+        </select>
+
+        <?php
+          // SQL query to join courses and instructors tables
+          $sql = "SELECT course_id, semester, year, course_prefix, course_number, course_section
+                  FROM courses;";
+
+          // Execute the query
+          $result = $conn->prepare($sql);
+          $result->execute();
+          
+        ?>
+
+        <label for="course">Select Course:</label>
+        <select name="course" id="course">
+            <?php
+              // Generate options for the dropdown
+              $rows = $result->fetchAll(PDO::FETCH_ASSOC);
+              if (!empty($rows)) {
+                  foreach ($rows as $row) {
+                      echo '<option value="' . $row["course_id"] . '">' . $row["semester"] . ' ' . $row["year"] . ' ' . $row["course_prefix"] . ' ' . $row["course_number"] . ' ' . $row["course_section"] .  '</option>';
+                  }
+              } else {
+                  echo '<option value="">No courses found</option>';
+              }
+            ?>
+        </select>
         
-        <label for="semester">Semester:</label>
-        <select id="semester" name="semester" required>
-          <option value="">Please select one</option>
-          <option value="Spring">Spring</option>
-          <option value="Summer">Summer</option>
-          <option value="Fall">Fall</option>
-        </select>    
-
-        <label for="year">Year:</label>
-        <input type="number" id="year" name="year" required>
-
-        <label for="course_prefix">Course Prefix (e.g., CSCI):</label>
-        <input type="text" id="course_prefix" name="course_prefix" max="50" required>
-
-        <label for="course_number">Course Number (e.g., 101, 330, etc.):</label>
-        <input type="number" id="course_number" name="course_number" required>
-
-        <label for="course_section">Course Section (e.g., 01, 02):</label>
-        <input type="number" id="course_section" name="course_section" required>
 
         <input type="submit" value="Register">
       </form>

@@ -1,10 +1,13 @@
 <?php include 'timeout.php'; 
 
-  if ($username != 'admin' && $username != 'instructor') {
+  if ($_SESSION['username'] != 'admin' && $_SESSION['username'] != 'instructor') {
     echo "Access Denied. You do not have permission to access this page.<br>";
     echo "<a href='home.php'>Click here</a> to return to the homepage.";
     exit();
   }
+
+  // Include the config.php file to establish a connection to the database
+  require_once 'config.php';
 ?>
 
 <!DOCTYPE html>
@@ -93,11 +96,31 @@
         <label for="credit_hours">Credit Hours:</label>
         <input type="number" id="credit_hours" name="credit_hours" required>
 
-        <label for="instructor_first_name">Instructor First Name:</label>
-        <input type="text" id="instructor_first_name" name="instructor_first_name" max="50" required>
+        <?php
+          // SQL query to join courses and instructors tables
+          $sql = "SELECT instructor_id, first_name, last_name
+                  FROM instructors;";
 
-        <label for="instructor_last_name">Instructor Last Name:</label>
-        <input type="text" id="instructor_last_name" name="instructor_last_name" max="50" required>
+          // Execute the query
+          $result = $conn->prepare($sql);
+          $result->execute();
+          
+        ?>
+
+        <label for="instructor">Select Instructor:</label>
+        <select name="instructor" id="instructor">
+            <?php
+              // Generate options for the dropdown
+              $rows = $result->fetchAll(PDO::FETCH_ASSOC);
+              if (!empty($rows)) {
+                  foreach ($rows as $row) {
+                      echo '<option value="' . $row["instructor_id"] . '">' . $row["first_name"] . ' ' . $row["last_name"] . '</option>';
+                  }
+              } else {
+                  echo '<option value="">No instructors found</option>';
+              }
+            ?>
+        </select>
 
         <label for="enrollment_cap">Enrollment Cap:</label>
         <input type="number" id="enrollment_cap" name="enrollment_cap" required>

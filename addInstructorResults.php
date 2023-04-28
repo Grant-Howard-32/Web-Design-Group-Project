@@ -1,32 +1,27 @@
-<?php include 'timeout.php'; ?>
+<?php 
+    include 'timeout.php';
+    include 'config.php';
 
-<?php
-$first_name = $_POST['first_name'];
-$last_name = $_POST['last_name'];
-$email = $_POST['email'];
-$department = $_POST['department'];
-$rank = $_POST['rank'];
-?>
+    $first_name = $_POST['first_name'];
+    $last_name = $_POST['last_name'];
+    $email = $_POST['email'];
+    $department = $_POST['department'];
+    $instructor_rank = $_POST['instructor_rank'];
 
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Add Instructor Result</title>
-        <link rel="stylesheet" type="text/css" href="styles.css">
-    </head>
-    <body>
-        <?php include 'navigation.php'; ?>
+    try {
+        $stmt = $conn->prepare("INSERT INTO instructors (first_name, last_name, email, department, instructor_rank) VALUES (:first_name, :last_name, :email, :department, :instructor_rank)");
+        $stmt->bindParam(':first_name', $first_name);
+        $stmt->bindParam(':last_name', $last_name);
+        $stmt->bindParam(':email', $email);
+        $stmt->bindParam(':department', $department);
+        $stmt->bindParam(':instructor_rank', $instructor_rank);
         
-        <h1 id="title">Add Instructor Results</h1>
-        <div class="resultsBox"> 
-            <ul class="resultsList">
-                <li><strong>Instructor First Name:</strong> <?php echo $first_name ?></li>
-                <li><strong>Instructor Last Name:</strong> <?php echo $last_name ?></li>
-                <li><strong>Email:</strong> <?php echo $email ?></li>
-                <li><strong>Department:</strong> <?php echo $department ?></li>
-                <li><strong>Rank:</strong> <?php echo $rank ?></li>
-            </ul>
-        </div>
-    </body>
-    <?php include 'footer.php'; ?>
-</html>
+        $stmt->execute();
+        echo "New instructor added successfully";
+    } catch(PDOException $e) {
+        echo "Error: " . $e->getMessage();
+    }
+
+    $conn = null;
+
+?>

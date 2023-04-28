@@ -1,10 +1,12 @@
 <?php include 'timeout.php'; 
   
-  if ($username != 'admin') {
+  if ($_SESSION['username'] != 'admin' && $_SESSION['username'] != 'instructor') {
     echo "Access Denied. You do not have permission to access this page.<br>";
     echo "<a href='home.php'>Click here</a> to return to the homepage.";
     exit();
   }
+
+  require_once 'config.php';
 ?>
 
 <!DOCTYPE html>
@@ -16,18 +18,53 @@
   </head>
   <body>
     <?php include 'navigation.php'; ?>
-    <h1 id="title">Select Course</h1>
-    <div class="form_container">
+    <?php
+          // SQL query to join courses and instructors tables
+          
+          if ($_SESSION['username'] == 'admin') {
+            $sql = "SELECT course_id, course_name
+                    FROM courses;";
+          }
+          elseif ($_SESSION['username'] == 'instructor') {
+            $sql = "SELECT instructors.instructor_id
+                  FROM instructors
+                  WHERE instructors.email = :email";
+
+            $stmt = $conn->prepare($sql);
+            $stmt->bindParam(':email', $_SESSION['email']);
+            $stmt->execute();
+            $results = $stmt->fetch(PDO::FETCH_ASSOC);
+            $instructor_id = $results['instructor_id'];
+
+            $sql = "SELECT course_id, course_name
+                    FROM courses
+                    WHERE courses.instructor_id = " . $instructor_id;
+          }
+
+          // Execute the query
+          $result = $conn->prepare($sql);
+          $result->execute();
+          
+        ?>
+
+        <label for="course">Select Course:</label>
         <form onsubmit="return validateAddCourseForm();" action="studentsRegisteredToCourse.php" method="post">
-            <label for="course">Course:</label>
-            <select id="course" name="course" onchange="this.form.submit()" required>
+          <select name="course" id="course" onchange="this.form.submit()">
               <option value="">Please select one</option>
-              <option value="Course 1">Course 1</option>
-              <option value="Course 2">Course 2</option>
-              <option value="Course 3">Course 3</option>
-            </select>
+              <?php
+                // Generate options for the dropdown
+                $rows = $result->fetchAll(PDO::FETCH_ASSOC);
+                if (!empty($rows)) {
+                    foreach ($rows as $row) {
+                        echo '<option value="' . $row["course_id"] . '">' . $row["course_name"] . '</option>';
+                    }
+                } else {
+                    echo '<option value="">No courses found</option>';
+                }
+              ?>
+          </select>
         </form>
-    </div>
+    
     <?php include 'footer.php'; ?>
   </body>
 </html>

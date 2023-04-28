@@ -3,13 +3,14 @@
     <a href="login.html">
         <img src="Icons/aperture.svg">
     </a>
-    <span>Hello, <?php echo $username; ?></span>
+    
     </div>
+    <span><?php echo 'Hello ' . $_SESSION['display_name']; ?></span>
     <div class="menu">
     <a href="home.php">
         <img src="Icons/home.svg" title="Home">
     </a>
-    <?php if ($username == 'admin') {
+    <?php if ($_SESSION['username'] == 'admin') {
         echo <<<'HTML'
             <div class="dropdown">
                 <img src="Icons/user-plus.svg" title="Add Instructor / Enroll Student">
@@ -23,17 +24,17 @@
     <div class="dropdown">
         <img src="Icons/plus-circle.svg" title="Modify Courses">
         <div class="dropdown-content">
-        <?php if ($username == 'admin' || $username == 'instructor') {
+        <?php if ($_SESSION['username'] == 'admin' || $_SESSION['username'] == 'instructor') {
             echo <<<'HTML'
                 <a href="addCourse.php">Add Course</a>
             HTML;
         }?>
-        <?php if ($username == 'admin' || $username == 'student') {
+        <?php if ($_SESSION['username'] == 'admin' || $_SESSION['username'] == 'student') {
             echo <<<'HTML'
                 <a href="registerCourse.php">Register Course</a>
             HTML;
         }?>
-        <?php if ($username == 'admin' || $username == 'student') {
+        <?php if ($_SESSION['username'] == 'admin' || $_SESSION['username'] == 'student') {
             echo <<<'HTML'
                 <a href="dropCourse.php">Drop Course</a>
             HTML;
@@ -43,37 +44,32 @@
     <div class="dropdown">
         <img src="Icons/calendar.svg" title="Courses and Students">
         <div class="dropdown-content">
-        <?php if ($username == 'admin') {
+        <?php if ($_SESSION['username'] == 'admin') {
             echo <<<'HTML'
                 <a href="selectStudent.php">Courses Registered</a>
             HTML;
         }?>
-        <?php if ($username == 'student') {
+        <?php if ($_SESSION['username'] == 'student') {
             echo <<<'HTML'
                 <a href="coursesRegistered.php">Courses Registered</a>
             HTML;
         }?>
-        <?php if ($username == 'admin') {
+        <?php if (($_SESSION['username'] == 'admin') || ($_SESSION['username'] == 'instructor')) {
             echo <<<'HTML'
                 <a href="selectCourse.php">Students Registered to Course</a>
             HTML;
         }?>
-        <?php if ($username == 'instructor') {
-            echo <<<'HTML'
-                <a href="studentsRegisteredToCourse.php">Students Registered to Course</a>
-            HTML;
-        }?>
-        <?php if ($username == 'admin') {
+        <?php if ($_SESSION['username'] == 'admin') {
             echo <<<'HTML'
                 <a href="selectInstructor.php">Courses Taught</a>
             HTML;
         }?>
-        <?php if ($username == 'instructor') {
+        <?php if ($_SESSION['username'] == 'instructor') {
             echo <<<'HTML'
                 <a href="coursesTaught.php">Courses Taught</a>
             HTML;
         }?>
-        <?php if ($username == 'admin') {
+        <?php if ($_SESSION['username'] == 'admin') {
             echo <<<'HTML'
                 <a href="selectSemester.php">Students Registered by Semester</a>
             HTML;

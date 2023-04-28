@@ -1,36 +1,20 @@
-<?php include 'timeout.php'; ?>
+<?php 
+    include 'timeout.php';
+    include 'config.php';
 
-<?php
-$student_first_name = $_POST['student_first_name'];
-$student_last_name = $_POST['student_last_name'];
-$semester = $_POST['semester'];
-$year = $_POST['year'];
-$course_prefix = $_POST['course_prefix'];
-$course_number = $_POST['course_number'];
-$course_section = $_POST['course_section'];
+    $student_id = $_POST['student'];
+    $course_id = $_POST['course'];
+
+    try {
+        $stmt = $conn->prepare("INSERT INTO registration (student_id, course_id) VALUES (:student_id, :course_id)");
+        $stmt->bindParam(':student_id', $student_id);
+        $stmt->bindParam(':course_id', $course_id);
+        
+        $stmt->execute();
+        echo "New registration added successfully";
+    } catch(PDOException $e) {
+        echo "Error: " . $e->getMessage();
+    }
+
+    $conn = null;
 ?>
-
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Register Course Result</title>
-        <link rel="stylesheet" type="text/css" href="styles.css">
-    </head>
-    <body>
-        <?php include 'navigation.php'; ?>
-
-        <h1 id="title">Register Course Results</h1>
-        <div class="resultsBox"> 
-            <ul class="resultsList">
-                <li><strong>First Name:</strong> <?php echo $student_first_name ?></li>
-                <li><strong>Last Name:</strong> <?php echo $student_last_name ?></li>
-                <li><strong>Semester:</strong> <?php echo $semester ?></li>
-                <li><strong>Year:</strong> <?php echo $year ?></li>
-                <li><strong>Course Prefix:</strong> <?php echo $course_prefix ?></li>
-                <li><strong>Course Number:</strong> <?php echo $course_number ?></li>
-                <li><strong>Course Section:</strong> <?php echo $course_section ?></li>
-            </ul>
-        </div>
-    </body>
-    <?php include 'footer.php'; ?>
-</html>

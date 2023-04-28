@@ -1,6 +1,7 @@
-<?php include 'timeout.php';
+<?php 
+  include 'timeout.php';
 
-  if ($username != 'admin') {
+  if ($_SESSION['username'] != 'admin') {
     echo "Access Denied. You do not have permission to access this page.<br>";
     echo "<a href='home.php'>Click here</a> to return to the homepage.";
     exit();

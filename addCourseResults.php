@@ -1,56 +1,51 @@
-<?php include 'timeout.php'; ?>
+<?php 
+    include 'timeout.php';
+    include 'config.php';
 
-<?php
-$semester = $_POST['semester'];
-$year = $_POST['year'];
-$course_prefix = $_POST['course_prefix'];
-$course_number = $_POST['course_number'];
-$course_section = $_POST['course_section'];
-$course_name = $_POST['course_name'];
-$course_room = $_POST['course_room'];
-$days = $_POST['days'];
-if ($days == 'mwf') {
-    $times = $_POST['times-mwf'];
-}
-if ($days == 'tth') {
-    $times = $_POST['times-tth'];
-}
-if ($days == 'mon' || $days == 'tue' || $days == 'wed' || $days == 'thu') {
-    $times = $_POST['times-day'];
-}
-$credit_hours = $_POST['credit_hours'];
-$instructor_first_name = $_POST['instructor_first_name'];
-$instructor_last_name = $_POST['instructor_last_name'];
-$enrollment_cap = $_POST['enrollment_cap'];
+
+    $semester = $_POST['semester'];
+    $year = $_POST['year'];
+    $course_prefix = $_POST['course_prefix'];
+    $course_number = $_POST['course_number'];
+    $course_section = $_POST['course_section'];
+    $course_name = $_POST['course_name'];
+    $course_room = $_POST['course_room'];
+    $days = $_POST['days'];
+    if ($days == 'mwf') {
+        $times = $_POST['times-mwf'];
+    }
+    if ($days == 'tth') {
+        $times = $_POST['times-tth'];
+    }
+    if ($days == 'mon' || $days == 'tue' || $days == 'wed' || $days == 'thu') {
+        $times = $_POST['times-day'];
+    }
+    $credit_hours = $_POST['credit_hours'];
+    $instructor_id = $_POST['instructor'];
+    $enrollment_cap = $_POST['enrollment_cap'];
+
+
+    try {
+        $stmt = $conn->prepare("INSERT INTO courses (semester, year, course_prefix, course_number, course_section, course_name, course_room, days, times, credit_hours, instructor_id, enrollment_cap) VALUES (:semester, :year, :course_prefix, :course_number, :course_section, :course_name, :course_room, :days, :times, :credit_hours, :instructor_id, :enrollment_cap)");
+        $stmt->bindParam(':semester', $semester);
+        $stmt->bindParam(':year', $year);
+        $stmt->bindParam(':course_prefix', $course_prefix);
+        $stmt->bindParam(':course_number', $course_number);
+        $stmt->bindParam(':course_section', $course_section);
+        $stmt->bindParam(':course_name', $course_name);
+        $stmt->bindParam(':course_room', $course_room);
+        $stmt->bindParam(':days', $days);
+        $stmt->bindParam(':times', $times);
+        $stmt->bindParam(':credit_hours', $credit_hours);
+        $stmt->bindParam(':instructor_id', $instructor_id);
+        $stmt->bindParam(':enrollment_cap', $enrollment_cap);
+        
+        $stmt->execute();
+        echo "New course added successfully";
+    } catch(PDOException $e) {
+        echo "Error: " . $e->getMessage();
+    }
+
+    $conn = null;
 ?>
 
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Add Course Result</title>
-        <link rel="stylesheet" type="text/css" href="styles.css">
-    </head>
-    <body>
-        <?php include 'navigation.php'; ?>
-
-        <h1 id="title">Add Course Results</h1>
-        <div class="resultsBox"> 
-            <ul class="resultsList">
-                <li><strong>Semester:</strong> <?php echo $semester ?></li>
-                <li><strong>Year:</strong> <?php echo $year ?></li>
-                <li><strong>Course Prefix:</strong> <?php echo $course_prefix ?></li>
-                <li><strong>Course Number:</strong> <?php echo $course_number ?></li>
-                <li><strong>Course Section:</strong> <?php echo $course_section ?></li>
-                <li><strong>Course Name:</strong> <?php echo $course_name ?></li>
-                <li><strong>Room:</strong> <?php echo $course_room ?></li>
-                <li><strong>Days:</strong> <?php echo $days ?></li>
-                <li><strong>Times:</strong> <?php echo $times ?></li>
-                <li><strong>Credit Hours:</strong> <?php echo $credit_hours ?></li>
-                <li><strong>Instructor First Name:</strong> <?php echo $instructor_first_name ?></li>
-                <li><strong>Instructor Last Name:</strong> <?php echo $instructor_last_name ?></li>
-                <li><strong>Enrollment Cap:</strong> <?php echo $enrollment_cap ?></li>
-            </ul>
-        </div>
-    </body>
-    <?php include 'footer.php'; ?>
-</html>

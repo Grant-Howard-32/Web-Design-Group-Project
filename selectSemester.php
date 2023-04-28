@@ -1,6 +1,6 @@
 <?php include 'timeout.php'; 
 
-  if ($username != 'admin') {
+  if ($_SESSION['username'] != 'admin') {
     echo "Access Denied. You do not have permission to access this page.<br>";
     echo "<a href='home.php'>Click here</a> to return to the homepage.";
     exit();
@@ -22,7 +22,7 @@
             <select id="semester" name="semester" onchange="this.form.submit()" required>
               <option value="">Please select one</option>
               <option value="Fall 2022">Fall 2022</option>
-              <option value="Spring 2023">Spring 2023</option>
+              <option value="Spring 2026">Spring 2026</option>
               <option value="Summer 2023">Summer 2023</option>
             </select>
         </form>

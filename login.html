@@ -9,6 +9,8 @@
     <div class="form_container">
         <h1 id="title">Login</h1>
         <form method="post" action="login.php" onsubmit="return validateAcceptUserForm()">
+            <label for="email">Email:</label>
+            <input type="text" id="email" name="email">
             <label for="username">User Name:</label>
             <input type="text" id="username" name="username" required>
             <p id="user_name_error"></p>
