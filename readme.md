@@ -1,32 +1,30 @@
-<input type="text" id="email" placeholder="Enter your email address">
+<?php
+// Get the submitted email address from the login form
+$email = $_POST['email'];
 
-<button onclick="validateEmail()">Submit</button>
+// Connect to the database
+$conn = mysqli_connect("localhost", "username", "password", "database_name");
 
-<script>
-function validateEmail() {
-  // Get the value of the input field
-  const email = document.getElementById("email").value;
-
-  // Define a regular expression pattern for email validation
-  const pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-  // Test the pattern against the email value
-  if (pattern.test(email)) {
-    alert("Email is valid!");
-  } else {
-    alert("Email is not valid!");
-  }
+// Check if the connection was successful
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
 }
-</script>
 
+// Prepare the SQL query to check if a record with the submitted email address exists
+$sql = "SELECT * FROM Students WHERE email = '$email'";
 
-williamson's way of checking email
-def clean_email(self, *args, **kwargs):
-        email = self.cleaned_data.get("email")
-        if not email.endswith("@marietta.edu"):
-            raise forms.ValidationError("This is not a valid Marietta email")
-        else:
-            return email
-            
-           
- 
+// Execute the query and get the result
+$result = mysqli_query($conn, $sql);
+
+// Check if there is at least one row returned by the query
+if (mysqli_num_rows($result) > 0) {
+    // The record exists, so let the user log in
+    // ...
+} else {
+    // The record doesn't exist, so display an error message
+    echo "Invalid email address";
+}
+
+// Close the database connection
+mysqli_close($conn);
+?>
