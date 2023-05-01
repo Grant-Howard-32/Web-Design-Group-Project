@@ -154,8 +154,8 @@
       <h2 id="courses-registered">Courses Registered</h2>
       <p>This page is only accessible to Student and Admin users.</p>
       <p>This page will appear differently depending on if the user is logged in as a Student or an Admin.</p>
-      <p>If the user is logged in as a Student, the page has no functionality and consists of an empty table. In the future, this page will display a database of courses registered for by the Student user.</p>
-      <p>If the user is logged in as an Admin, the page will ask the Admin user to select an enrolled student. In the future, the choices for students will consist of a list of enrolled students from a database, but for now, the Admin user is only able to select "Student 1", "Student 2", or "Student 3". After selecting an enrolled student, the page will display the chosen student's registered courses.</p>
+      <p>If the user is logged in as a Student, this page displays a database of courses registered for by the Student user.</p>
+      <p>If the user is logged in as an Admin, the page asks the Admin user to select an enrolled student. After selecting an enrolled student, the page will display the chosen student's registered courses.</p>
       <br>
     </div>
 
@@ -163,8 +163,8 @@
       <h2 id="students-registered-to-course">Students Registered to Course</h2>
       <p>This page is only accessible to Instructor and Admin users.</p>
       <p>This page will appear differently depending on if the user is logged in as an Instructor or an Admin.</p>
-      <p>If the user is logged in as an Instructor, the page has no functionality and consists of an empty table. In the future, this page will display a database of students registered for a particular course.</p>
-      <p>If the user is logged in as an Admin, the page will ask the Admin user to select an added course. In the future, the choices for the courses will consist of a list of added courses from a database, but for now, the Admin user is only able to select "Course 1", "Course 2", or "Course 3". After selecting an added course, the page will display the chosen course's student roster.</p>
+      <p>If the user is logged in as an Instructor, this page displays a database of students registered for a particular course.</p>
+      <p>If the user is logged in as an Admin, the page asks the Admin user to select an added course. After selecting an added course, the page will display the chosen course's student roster.</p>
       <br>
     </div>
 
@@ -172,15 +172,15 @@
       <h2 id="courses-taught">Courses Taught</h2>
       <p>This page is only accessible to Instructor and Admin users.</p>
       <p>This page will appear differently depending on if the user is logged in as an Instructor or an Admin.</p>
-      <p>If the user is logged in as an Instructor, the page has no functionality and consists of an empty table. In the future, this page will display a database of courses taught by the Instructor user who is logged in.</p>
-      <p>If the user is logged in as an Admin, the page will ask the Admin user to select an added instructor. In the future, the choices for the instructors will consist of a list of added instructors from a database, but for now, the Admin user is only able to select "Instructor 1", "Instructor 2", or "Instructor 3". After selecting an added instructor, the page will display the courses that the chosen instructor teaches.</p>
+      <p>If the user is logged in as an Instructor, this page displays a database of courses taught by the Instructor user who is logged in.</p>
+      <p>If the user is logged in as an Admin, the page asks the Admin user to select an added instructor. After selecting an added instructor, the page displays the courses that the chosen instructor teaches.</p>
       <br>
     </div>
 
     <div class="main">
       <h2 id="students-registered-by-semester">Students Registered by Semester</h2>
       <p>This page is only accessible to Admin users.</p>
-      <p>When first accessed, the page will ask the Admin user to select a semester. Currently, the choices are "Fall 2022", "Spring 2023", and "Summer 2023". After selecting a semester, the page will display a list of enrolled students that are registered for the chosen semester.</p>
+      <p>When first accessed, the page asks the Admin user to select a semester. After selecting a semester, the page displays a list of enrolled students that are registered for the chosen semester.</p>
       <br>
     </div>
 
