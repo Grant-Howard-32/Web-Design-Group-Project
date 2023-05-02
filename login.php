@@ -43,11 +43,11 @@ if (($_SESSION['username'] == 'admin') || !empty($result)) {
     }
     elseif ($_SESSION['username'] == 'student') {
         $_SESSION["display_name"] = $result[0]['first_name'];
-        $_SESSION['id'] = $result[0]['student_id']; // Set the 'student_id' session variable here
+        $_SESSION['id'] = $result[0]['student_id']; 
     }
     elseif ($_SESSION['username'] == 'instructor') {
         $_SESSION["display_name"] = $result[0]['first_name'];
-        $_SESSION['id'] = $result[0]['instructor_id']; // Set the 'instructor_id' session variable here
+        $_SESSION['id'] = $result[0]['instructor_id'];
     }
     
     header("Location: home.php");
