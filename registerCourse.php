@@ -65,7 +65,6 @@
           $sql = "SELECT course_id, semester, year, course_prefix, course_number, course_section
                   FROM courses;";
 
-          // Execute the query
           $result = $conn->prepare($sql);
           $result->execute();
           

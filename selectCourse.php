@@ -41,7 +41,6 @@
                     WHERE courses.instructor_id = " . $instructor_id;
           }
 
-          // Execute the query
           $result = $conn->prepare($sql);
           $result->execute();
           

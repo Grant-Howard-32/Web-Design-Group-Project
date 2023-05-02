@@ -24,7 +24,6 @@
           $sql = "SELECT student_id, first_name, last_name
                   FROM students;";
 
-          // Execute the query
           $result = $conn->prepare($sql);
           $result->execute();
           

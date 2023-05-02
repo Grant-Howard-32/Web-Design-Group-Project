@@ -23,7 +23,6 @@
           $sql = "SELECT instructor_id, first_name, last_name
                   FROM instructors;";
 
-          // Execute the query
           $result = $conn->prepare($sql);
           $result->execute();
           
