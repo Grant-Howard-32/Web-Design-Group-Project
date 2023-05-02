@@ -25,21 +25,23 @@
       <?php
           // Get the current user's role and ID from the session
           $current_role = $_SESSION['username'];
-          $current_user_id = $_SESSION['id'];
 
-          // SQL query to get students
           if ($current_role == 'student') {
-              $sql = "SELECT student_id, first_name, last_name FROM students WHERE student_id = :current_user_id;";
-          } else {
-              $sql = "SELECT student_id, first_name, last_name FROM students;";
-          }
+            $current_user_id = $_SESSION['id'];
+        }
 
-          $result = $conn->prepare($sql);
+        $sql = "SELECT student_id, first_name, last_name FROM students";
 
-          // Bind the current user ID if the user is a student
-          if ($current_role == 'student') {
-              $result->bindParam(':current_user_id', $current_user_id);
-          }
+        if ($current_role == 'student') {
+            $sql .= " WHERE student_id = :current_user_id";
+        }
+
+        $result = $conn->prepare($sql);
+
+        // Bind the current user ID if the user is a student
+        if ($current_role == 'student') {
+            $result->bindParam(':current_user_id', $current_user_id);
+        }
 
           $result->execute();
         ?>

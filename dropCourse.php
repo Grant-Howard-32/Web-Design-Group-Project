@@ -26,7 +26,9 @@
       <?php
           // Get the current user's role and ID from the session
           $current_role = $_SESSION['username'];
-          $current_user_id = $_SESSION['id'];
+          if ($current_role == 'student') {
+            $current_user_id = $_SESSION['id'];
+        }
 
           // SQL query to get students
           if ($current_role == 'student') {
