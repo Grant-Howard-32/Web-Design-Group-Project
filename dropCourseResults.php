@@ -22,3 +22,4 @@ try {
 
 $conn = null;
 ?>
+<?php include 'footer.php'; ?>

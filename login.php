@@ -6,6 +6,7 @@ require_once 'config.php';
 
 // Get the submitted email address from the login form
 $email = $_POST['email'];
+$id = $_POST['student_id'];
 $_SESSION['username'] = $_POST['username'];
 
 // Check if the username is valid
@@ -21,7 +22,7 @@ if ($_SESSION['username'] == 'student') {
 } elseif ($_SESSION['username'] == 'instructor') {
     $sql = "SELECT * FROM instructors WHERE email = :email";
 } elseif ($_SESSION['username'] == 'admin') {
-    $sql = ""; // Add this line to handle the 'admin' case
+    $sql = "";
 }
 
 if ($_SESSION['username'] != 'admin') {
@@ -41,26 +42,12 @@ if (($_SESSION['username'] == 'admin') || !empty($result)) {
         $_SESSION["display_name"] = $_SESSION['username'];    
     }
     elseif ($_SESSION['username'] == 'student') {
-        $sql = "SELECT students.first_name
-                FROM students
-                WHERE students.email = :email";
-
-        $stmt = $conn->prepare($sql);
-        $stmt->bindParam(':email', $email);
-        $stmt->execute();
-        $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        $_SESSION["display_name"] = $results[0]['first_name'];
+        $_SESSION["display_name"] = $result[0]['first_name'];
+        $_SESSION['id'] = $result[0]['student_id']; // Set the 'student_id' session variable here
     }
     elseif ($_SESSION['username'] == 'instructor') {
-        $sql = "SELECT instructors.first_name
-        FROM instructors
-        WHERE instructors.email = :email";
-
-        $stmt = $conn->prepare($sql);
-        $stmt->bindParam(':email', $email);
-        $stmt->execute();
-        $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        $_SESSION["display_name"] = $results[0]['first_name'];
+        $_SESSION["display_name"] = $result[0]['first_name'];
+        $_SESSION['id'] = $result[0]['instructor_id']; // Set the 'instructor_id' session variable here
     }
     
     header("Location: home.php");

@@ -23,20 +23,30 @@
     <div class="form_container">
       <form onsubmit="return validateRegisterDropCourseForm();" action="registerCourseResults.php" method="post">
       <?php
-          // SQL query to join courses and instructors tables
-          $sql = "SELECT student_id, first_name, last_name
-                  FROM students;";
+          // Get the current user's role and ID from the session
+          $current_role = $_SESSION['username'];
+          $current_user_id = $_SESSION['id'];
 
-          // Execute the query
+          // SQL query to get students
+          if ($current_role == 'student') {
+              $sql = "SELECT student_id, first_name, last_name FROM students WHERE student_id = :current_user_id;";
+          } else {
+              $sql = "SELECT student_id, first_name, last_name FROM students;";
+          }
+
           $result = $conn->prepare($sql);
+
+          // Bind the current user ID if the user is a student
+          if ($current_role == 'student') {
+              $result->bindParam(':current_user_id', $current_user_id);
+          }
+
           $result->execute();
-          
         ?>
 
         <label for="student">Select Student:</label>
         <select name="student" id="student">
             <?php
-              // Generate options for the dropdown
               $rows = $result->fetchAll(PDO::FETCH_ASSOC);
               if (!empty($rows)) {
                   foreach ($rows as $row) {
@@ -77,7 +87,8 @@
 
         <input type="submit" value="Register">
       </form>
-    </div>
+      </div>
     <?php include 'footer.php'; ?>
   </body>
 </html>
+
